@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<link rel="stylesheet" href="ProjectLayout.css"/>
+	<link rel="stylesheet" href="prism.css"/>
+	<link rel="stylesheet" href="libs/github-dark.css"/>
+<title>Carson Moon | Goblin Game</title>
+</head>
+
+<body>
+	
+	<!-- BACKGROUND VIDEO -->
+	<img src="Images/1x/Goblin/Goblin_Background.png" style="margin: 0; padding: 0; width: 100%; height: 100%; z-index: -11; position: fixed;"/>
+	<!--<video autoplay muted loop playsinline id="bg-video">
+		<source src="Videos/KiboBackground.webm">
+	</video>-->
+	
+	<div class="page-container">
+		<div class="left-column">
+			<!-- PROJECT DROPDOWNS -->
+			<div class="dropdown">
+				<img src="Images/1x/Goblin/Goblin_Overview.png" class="dropdown-toggle-image" alt="Click for content!"/>
+				<div class="dropdown-content">
+					<div class="content-holder-hor">
+						<p class="text-content">Goblin Game is a working title for a multiplayer project that my friend and I conceptualized in May of 2025. We began work on it as soon as we were both free from our last project. The core gameplay of Goblin Game is stab and grab. Players will run around and stab other goblins, causing them to lose coins in a very expensive explosion. These coins can then be picked up by other goblins either by colliding with them or using your magical jar vacuum. Goblins getting in your way? Hurl your jar at their head to knock them unconscious for a few moments! Gameplay will consist of a few rounds which then lead to an awards ceremony that gives different accolades to players (each equivalent to a point). These accolades will range from skill-based (Most stabs, most coins, etc.) to completely random (most wounds, most time spent knocked-out). This allows for players to diversify their gameplay as much as possible!</p>
+						<img class="image-content" src="Images/1x/Goblin/Goblin_Park.png"/>
+					</div>
+					<p class="text-content">Goblin Game is working to improve my networking skills. A lot of tings have been challenging so far, namely dealing with player interactions over the network.</p>
+					<p class="text-content">Features that are confirmed for Goblin Game: <a style="color: black;">Proximity chat, Goblin customization, different maps with different layouts, lobbies of 8+.</a></p>
+					<p class="text-content">Stay tuned!</p>
+				</div>
+				
+			</div>
+		</div>
+
+		<!-- STICKY WINDOW -->
+		<div class="right-column">
+			<div class="sticky-box">
+				<h2><em>Goblin Game (WIP - Working Title)</em></h2>
+				<p>Polariis</p>
+				<p>Co-Producer and Programmer</p>
+				<p>May 2025 -</p>
+				<p>Skills: <a style="color: black;">Unity Networking, Peer-to-peer Architecture, Multiplayer Features, C#</a></p>
+				<!--<img src="Images/1x/Kibo/KiboLooking.png"/>-->
+				<video autoplay muted loop playsinline>
+					<source src="Videos/Goblin_Trailer.mp4">
+				</video>
+			</div>
+	  	</div>
+		
+	</div>
+
+	<!-- DROPDOWN LOGIC -->
+	<script>
+		document.querySelectorAll('.dropdown-toggle-image').forEach(button =>{
+			button.addEventListener('click', ()=>{
+				const content = button.nextElementSibling;
+				content.classList.toggle('open');
+			});
+		});
+	</script>
+	
+	<script src="libs/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<!--<script src="prism.js"></script>-->
+</body>
+</html>

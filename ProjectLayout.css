@@ -1,0 +1,235 @@
+@charset "utf-8";
+/* CSS Document */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Background video, takes up the entire viewport */
+#bg-video {
+  	position: fixed;
+  	top: 0;
+  	left: 0;
+  	width: 100vw;
+  	height: 100vh;
+  	object-fit: cover;
+	z-index: -1;
+}
+
+p{
+	font-size: 20px;
+}
+
+pre{
+	margin: 0;
+	font-size: clamp(0.60rem, 1.0vw, 1rem);
+	line-height: 1.5;
+}
+
+.page-container {
+  	display: flex;
+  	flex-wrap: wrap-reverse;
+  	width: 100%;
+  	padding: 0;
+	gap: 2rem;
+}
+
+/* Left content area: scrolls normally */
+.left-column {
+  	flex: 2;
+	padding-left: 1rem;
+}
+
+/* Dropdown Content */
+.content-holder-hor{
+	display: flex;
+	width: 100%;
+	gap: 2rem;
+	padding: 0rem;
+	align-content: center;
+	align-items: center;
+	box-sizing: border-box;
+}
+
+.text-content{
+	font-family: Verdana;
+	color: white;
+	width: 100%;
+	padding: 1rem;
+}
+
+.image-content{
+	width: 100%;
+	max-width: 600%;
+	border-radius: 12px;
+	align-self: center;
+	margin-bottom: 1rem;
+	margin-top: 1rem;
+	display: block;
+}
+
+.code-row {
+  	display: flex;
+  	flex-wrap: wrap;            /* Allows wrapping on small screens */
+  	gap: 1rem;
+  	justify-content: center;
+  	padding: 1rem;
+}
+
+.code-content{
+	flex: 1 1 300px;
+  	min-width: 250px;
+  	max-width: 800px;
+  	background-color: #212121;
+  	border-radius: 12px;
+  	padding: 1rem;
+  	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  	overflow: auto;
+}
+
+.video-content{
+	width: 100%;
+	height: auto;
+	border-radius: 12px;
+}
+
+/* Right column: contains the sticky box */
+.right-column {
+  	flex: 1;
+  	position: relative;
+	padding-right: 1rem;
+}
+
+/* Sticky content */
+.sticky-box {
+  	position: sticky;
+  	top: 2rem;
+  	background-size: cover;
+  	background-position: center;
+  	height: auto;
+  	border-radius: 12px;
+  	padding: 1rem;
+  	box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+	margin-top: 25%;
+	
+	/* GLASSMORPHISM */
+	/* From https://css.glass */
+	background: rgba(159, 239, 223, 0.35);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(7, 255, 225, 0.3);
+}
+
+.sticky-box img{
+	width: 100%;
+	height: auto;
+	border-radius: 12px;
+}
+
+.sticky-box video{
+	width: 100%;
+	height: auto;
+	border-radius: 12px;
+}
+
+.sticky-box p, h1, h2{
+	font-family: Verdana;
+	color: white;
+}
+
+@media (max-width: 1500px) {
+	.page-container {
+    	flex-direction: column;
+	}
+	
+	.content-holder-hor{
+		flex-direction: column;
+	}
+	
+	.code-row{
+		flex-direction: column;
+	}
+	
+	pre{
+		white-space: pre-wrap;
+		word-wrap: break-word;
+	}
+	
+	.code-content{
+		white-space: pre-wrap;
+		word-wrap: break-word;
+		max-width: 400px;
+		overflow: hidden;
+		height: auto;
+		overflow-y: scroll;
+	}
+	
+	.sticky-box {
+    	position: static;
+    	height: auto;
+    	margin-top: 1rem;
+  	}
+
+	.right-column{
+		order: -1;
+	}
+}
+
+/* DROPDOWNS */
+.dropdown{
+	
+}
+
+.dropdown-toggle-image{
+	width: 100%;
+	height: auto;
+	display: block;
+	width: 100%;
+	max-width: 1000px;
+	cursor: pointer;
+	transform: translatex(-15%);
+	transition: transform 0.3s ease;
+	
+}
+
+.dropdown-toggle-image:hover{
+	transform: translateX(-10%);
+}
+
+.dropdown-text{
+	position: absolute;
+	top: 10%;
+	left: 31%;
+	transform: translate(-50%, -50%);
+	color: white;
+	font-weight: bold;
+	pointer-events: none;
+	font-size: clamp(1rem, 2vw, 3rem);
+}
+
+.dropdown-content{
+	max-height: 0vh;
+	/*max-width: 400px;*/
+	overflow: hidden;
+	background-color: white;
+	border-radius: 12px;
+  	box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+	transition: max-height 0.5s ease;
+	padding: 0 1rem;
+	
+	/* GLASSMORPHISM */
+	/* From https://css.glass */
+	background: rgba(159, 239, 223, 0.75);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+}
+
+.dropdown-content.open{
+	width: auto;
+	max-height: 1000vh;
+	padding: 0 1rem;
+}

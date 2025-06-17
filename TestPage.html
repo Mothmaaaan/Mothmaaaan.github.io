@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="ContentSetup.css"/>
+<title>Carson Moon | KiBo</title>
+</head>
+<body>
+<img src="Images/1x/BackgroundSquare.png" class="square" style="left: 50%; top: 320%; width: 70vw; height: 600%; opacity: 0.9;"/>
+	
+<img src="Images/1x/TempBackground.png" style="position: fixed; width: 100%; height: 100%; z-index: -11;"/>
+<img src="Images/1x/TitleText.png" class="header"/>
+	
+	<!-- PAGE CONTENT -->
+	<div class="main-content" style="padding-top: 30vh">
+		
+		<h1 class="header-section">KiBo</h1>
+		<h1 class="sub-header-section">Polariis</h1>
+		<h1 class="sub-header-section">Co-producer, Programmer</h1>
+		<h1 class="sub-header-section">May 2025 - June 2025</h1>
+		
+		<img class="image-section" src="Images/1x/KiboLooking.png"/>
+		<p class="text-section">Skills: <a style="color: seagreen;">Unity Networking, Server-Client Architecture, Inverse Kinematics, C#</a></p>
+		<p class="text-section"><em>KiBo</em> was an experimental project that me and a buddy worked on right after we both finished our degrees. It was an extremely rewarding game to work on due to how challenging it ended up being. I was extremely focused on networking challenges and player conveyance throughout the three weeks we had for the project. <em>KiBo</em> was created for the <a href="https://itch.io/jam/tgcxcoreblazer" target="_blank" style="color: gold">thatgamecompany x COREBLAZER GAME JAM 2025</a>, which released the theme of generosity. After a few brainstorming sessions, the idea of <em>ending your own gameplay experience to allow future players to progress further than you</em> was what we settled on. Thus, the main concept of praying to turn into a statue was born and <em>KiBo</em> was created.</p>
+		
+		<!-- NETWORKING TOPIC -->
+		<h1 class="header-section" style="padding-top: 12%; padding-bottom: 4%;">-------- Networking Struggles --------</h1>
+		<p class="text-section" style="padding-bottom: 4%;">I created a DirectConnectionManager which had enough versatility to allow me to toggle if a build of KiBo should be a server or client build. This script was also engineered in mind to allow for the  server to shut down and move to a different machine. Player’s statue positions are saved to the server machine and reloaded when the server starts up. I also wanted to have versatility if too many players were playing the game too fast; this led to the creation of a script that initialized the torches (number of players needed) over the network when the server first starts up. This way, I can shut the server down, move the statue save over to a new machine if necessary, and relaunch the server in the exact same state it was in before it shut down!</p>
+		<div class="side-by-side">
+			<p class="side-text">Creating KiBo meant creating a multiplayer experience in a very short amount of time (approximately three weeks). Now, I am no stranger to multiplayer, having created many small projects in the past. However, creating something this fast was new to me. I also needed to experiment with a new server architecture, as peer-to-peer would not let all the players affect one grand total of statues. My solution was (admittedly rushed due to lack of experience) to run a server off my laptop and allow all players to connect directly to it during the duration of the jam.</p>
+			<img src="Images/1x/KiboLooking.png" alt="Kibo" class="side-image" style="margin-left: 1rem;"/>
+		</div>
+		
+		<!-- ADDITIONAL CHALLENGES TOPIC -->
+		<h1 class="header-section" style="padding-top: 4%; padding-bottom: 4%;">-------- Additional Challenges --------</h1>
+		<div class="side-by-side" style="margin-bottom: 4%;">
+			<img src="Images/1x/KiboLooking.png" alt="Kibo" class="side-image" style="margin-right: 1rem;"/>
+			<p class="side-text">There were a few challenges during our three-week sprint. Inverse Kinematics was something I had very little experience with, and it took a lot of trial and error to have the hands move in a way that I felt was appropriate for a creature like KiBo. I ended up with a GrabManager script which informed Hand scripts on where to smoothly translate the IK target to.</p>	
+		</div>
+		<div class="side-by-side">
+			<p class="side-text">Just one day before the game was due for submission, we ran a playtest with only two players… and the server crashed in under three minutes. I was distraught. Getting to work immediately, I found the issue to be how large the packets were that each client was sending to the server. I found the issue (which ended up being completely, 100% my fault) and was able to write a new script that compiled the IK target information and send that over the network. This was necessary as before I had attached a NetworkTransform component to every bone that IKs were affecting; over 30 bones per player updating every frame (oops!).</p>
+			<img src="Images/1x/KiboLooking.png" alt="Kibo" class="side-image" style="margin-right: 1rem;"/>
+		</div>
+		
+		<!-- POST MORTEM SECTION -->
+		<h1 class="header-section" style="padding-top: 4%; padding-bottom: 4%;">-------- Post-Mortem --------</h1>
+		<p class="text-section" style="padding-bottom: 4%;">KiBo has grown to become my favorite project I have worked on. There were so many different elements that took a lot of trial and error, and I learned more in those three weeks than I did over the course of some entire projects. As demanding as it was, I will work twice as hard for the next game jam I participate in. I hope to carry some of the procedural animation tactics I learned into my future projects, bringing even more life into whatever experience I am creating.</p>
+		
+		
+	</div>
+<main class="main-content">
+		
+	</main>
+</body>
+</html>

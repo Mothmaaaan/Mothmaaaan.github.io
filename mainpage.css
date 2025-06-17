@@ -1,0 +1,140 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  /*overflow: hidden;*/
+}
+/* Background video, takes up the entire viewport */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+/* Temp Background Image */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -11;
+  pointer-events: none;
+}
+/* Responsive Text */
+.responsive-text {
+  position: absolute;
+  color: white;
+  /* Auto-resizes with screen */
+  z-index: 2;
+}
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+/* Blur */
+.blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* Glassmorphism styles */
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  pointer-events: none;
+  z-index: 1;
+}
+/* Blur Box */
+.blur-box {
+  position: absolute;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  /* Glassmorphism styles */
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(0px);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+/* Responsive Image */
+.responsive-image {
+  position: absolute;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  filer: blur(10px);
+}
+/* Game Banner */
+.game-banner {
+  position: absolute;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  transform: translateX(0);
+}
+.game-banner:hover {
+  transform: translateX(5%);
+}
+/* Container for Game Banners */
+.banner-container {
+  position: fixed;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 2;
+}
+.project-content {
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.content-wrapper-vert {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1rem;
+}
+.content-wrapper img, .content-wrapper video {
+  flex: 1 1 300px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+html {
+  font-size: 16px;
+}
+.text-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 100%;
+}

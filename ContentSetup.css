@@ -1,0 +1,204 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Reset */
+html, body{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Header */
+.header{
+	position: fixed;
+	top: 0;
+	height: 10%;
+	display: flex;
+	z-index: 999;
+}
+
+/* Main Content Holder */
+.main-content{
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 0;
+	column-gap: 0;
+	grid-column-gap: 0;
+	/*padding-top: 10vh;*/
+}
+
+/* Used for a section of content */
+.section{
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	align-items: center;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	padding-left: 25rem;
+	padding-right: 25rem;
+}
+
+.text-section{
+	position: relative;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+    color: white;
+	word-wrap: normal;
+     /* Auto-resizes with screen */
+	font-size: clamp(1rem, 2.5vw, 1.5rem);
+	max-width: 60%;
+    z-index: 2;
+	
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	
+	padding-top: 2rem;
+	
+	/* Background Image */
+	/*background-image: url("Images/1x/Window2.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center;*/
+	
+	/* Glassmorphism styles */
+	/*backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(0px);
+	pointer-events: none;*/
+}
+
+.header-section{
+	position: relative;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+    color: white;
+	white-space: normal;
+	word-wrap: normal;
+     /* Auto-resizes with screen */
+	font-size: clamp(1rem, 2.5vw, 3rem);
+	max-width: 60%;
+    z-index: 2;
+	
+	left: 50%;
+	transform: translateX(-50%);
+	align-content: center;
+	text-align: center;
+	
+	padding-top: 2rem;
+}
+
+.sub-header-section{
+	position: relative;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+    color: white;
+	white-space: normal;
+	word-wrap: normal;
+     /* Auto-resizes with screen */
+	font-size: clamp(1rem, 2.5vw, 2rem);
+	max-width: 60%;
+    z-index: 2;
+	
+	left: 50%;
+	transform: translateX(-50%);
+	align-content: center;
+	text-align: center;
+	
+	padding-top: .5rem;
+}
+
+.image-section{
+	position: relative;
+	left: 50%;
+	max-width: 50%;
+	transform: translateX(-50%);
+	border-radius: 40px;
+	display: block;
+}
+
+/* Main Content Background */
+.square{
+	position: absolute;
+	transform: translate(-50%, -50%);
+	border-radius: 60px;
+}
+
+/* Main Body Text */
+.body-text{
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+    color: white;
+	white-space: normal;
+	word-wrap: normal;
+     /* Auto-resizes with screen */
+	font-size: clamp(1rem, 2.5vw, 1.5rem);
+	max-width: 50%;
+    z-index: 2;
+	
+	/* Background Image */
+	/*background-image: url("Images/1x/Window2.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center;*/
+	
+	/* Glassmorphism styles */
+	/*backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(0px);
+	pointer-events: none;*/
+}
+
+/* Header Text */
+.header-text{
+	position: relative;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+    color: white;
+	white-space: normal;
+	word-wrap: normal;
+     /* Auto-resizes with screen */
+	transform: translate(-50%, -50%);
+	text-align: center;
+	font-size: clamp(1rem, 2.5vw, 3rem);
+    z-index: 2;
+}
+
+/* Sub Header Text */
+.sub-header-text{
+	position: relative;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+    color: white;
+	white-space: normal;
+	word-wrap: normal;
+     /* Auto-resizes with screen */
+	transform: translate(-50%, -50%);
+	text-align: center;
+	font-size: clamp(1rem, 2.5vw, 2rem);
+    z-index: 2;
+}
+
+/* Side by Side Content */
+.side-by-side{
+	display: flex;
+	flex-direction: row;
+	align-items:center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.side-image{
+	max-width: 60vh;
+	height: auto;
+	border-radius: 20px;
+	z-index: 10;
+}
+
+.side-text{
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+	max-width: 60vh;
+	font-size: clamp(1rem, 2.5vw, 1.5rem);
+	color: white;
+	z-index: 10;
+}
