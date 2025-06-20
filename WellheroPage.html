@@ -1,0 +1,270 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<link rel="stylesheet" href="ProjectLayout.css"/>
+	<link rel="stylesheet" href="prism.css"/>
+	<link rel="stylesheet" href="libs/github-dark.css"/>
+<title>Carson Moon | Wellness Hero</title>
+</head>
+
+<body>
+	
+	<!-- BACKGROUND VIDEO -->
+	<img src="Images/1x/Wellhero/Wellhero_Background.png" style="margin: 0; padding: 0; width: 100%; height: 100%; z-index: -11; position: fixed;"/>
+	<!--<video autoplay muted loop playsinline id="bg-video">
+		<source src="Videos/KiboBackground.webm">
+	</video>-->
+	
+	<div class="page-container">
+		
+		<div class="left-column">
+			<!-- PROJECT DROPDOWNS -->
+			<!-- OVERVIEW -->
+			<div class="dropdown">
+				<img src="Images/1x/Wellhero/Wellhero_Overview.png" class="dropdown-toggle-image" alt="Click for content!"/>
+				<div class="dropdown-content">
+					<h1 class="text-content">What I Created</h1>
+					<p class="text-content">Since I am the only programmer on Wellness Hero, I was in charge of all gameplay systems and tools to expedite development. I created systems including but not limited to:</p>
+					<ul class="list-content">
+						<li>Menus with Editor Debugs</li>
+						<li>TSV Reader</li>
+						<li>Mobile Player Input</li>
+						<li>Save System with Editor Debugs</li>
+						<li>Hooked up Unity Analytics</li>
+						<li>All Gameplay Mechanics</li>
+						<li>Main Menu</li>
+						<li>SFX and VFX implementations</li>
+					</ul>
+					<h1 class="text-content">Be your own Wellness Hero!</h1>
+					<p class="text-content">Wellness Hero is an app that aims to gamify the management of your mental health. It started as a paper prototype, which eventually evolved into an idea for something that people could carry around in their pockets.</p>
+					<p class="text-content">Based on the “Spoon Theory” which can be explained as a metaphor for a persons limited energy levels throughout the day. These “spoons” represent energy and the limited number of spoons means that they must be rationed to make it through the day. Daily tasks have a “spoon” requirement, which explains how much energy it takes to complete that task. These tasks can range from small things like “making the bed” or “eating breakfast” to larger things like “working 9-5” or “fixing the car” to even larger and more abstract things like “dealing with a loss” or “suffering from anxiety.”</p>
+					<video class="video-content" autoplay muted loop playsinline>
+						<source src="Videos/Wellhero_IntroVid.mp4">
+					</video>
+				</div>
+				
+			</div>
+			
+			
+			<!-- SYSTEMS -->
+			<div class="dropdown">
+				<img src="Images/1x/Wellhero/Wellhero_Systems.png" class="dropdown-toggle-image" alt="Click for content!"/>
+				<div class="dropdown-content">
+					
+					
+					<h1 class="text-content">Energy Transfering</h1>
+					<p class="text-content">Towers are the core of Wellness Hero, and the main gameplay comes from determing how to connect and transfer your energy for the day. This energy transfer is slightly more complicated that I originally thought it was going to be, because connections can be created and destroyed at will. This means that energy needs to be recalculated on the fly based on what is currently connected to it. I knew I did not want to run this in update (which would have been the easy solution) and instead recalculate only when necessary.<br><br>There are a few different categories of energy, so I threw those into an array and was able to recalculate whenever a connection was created or destroyed through a single function which called the next tower in line.</p>
+					<div class="code-row">
+						<div class="code-content">
+							<p class="text-content">Recalculating Energy</p>
+							<pre><code>
+ // Calculate our used and extra energy.
+public void CalculateUsedEnergy()
+{
+	// Add our default and supplied energies together.
+	float[] totalEnergy = {defaultEnergy[0] + suppliedEnergy[0], defaultEnergy[1] + suppliedEnergy[1], 
+							defaultEnergy[2] + suppliedEnergy[2], defaultEnergy[3] + suppliedEnergy[3]};
+
+	//print("Total Energy: " + totalEnergy[3]);
+	// Start from the top and subtract our cost if we have one. Return our remaining energy.
+ 	extraEnergy = CalculateExtraEnergy(totalEnergy);
+
+	// Set our used values appropriately.
+	//print("Total Energy: " + totalEnergy[3]);
+	usedEnergy = new float[4] {totalEnergy[0] - extraEnergy[0], totalEnergy[1] - extraEnergy[1], 
+								totalEnergy[2] - extraEnergy[2], totalEnergy[3] - extraEnergy[3]};
+
+	totalUsedEnergy = usedEnergy[0] + usedEnergy[1] + usedEnergy[2] + usedEnergy[3];
+
+	// Call this for our next tower if we have one and supply our extra energy.
+	if(lPoint.GetNextLink() != null)
+	{
+		lPoint.GetNextLink().GetTower().SetSuppliedEnergy(extraEnergy);
+	}
+
+	// Update graphics because we have new energy values.
+	UpdateGraphics();
+}
+					</code></pre>
+						</div>
+						</div>
+					
+					<h1 class="text-content">TSV Reader</h1>
+					<p class="text-content">Something that I have programmed that is unique to Wellness Hero is a TSV reader. We use a large excel sheet and instead of a CSV (comma separated values) we use a TSV (tab separated values) document. This was fun to program and was one of the first times I had to read an outside document in C# for a game.</p>
+					<p class="text-content">To help with debugging, I created buttons in the Unity inspector that can be used to read the TSV at any time and generate a list of cards from it. Being able to regenerate all of these cards (100+) on the fly was crucial to developing and tweaking values to balance the game.</p>
+					<div class="code-row">
+						<div class="code-content">
+							<p class="text-content">Parsing Values from the TSV</p>
+							<pre><code>
+// Create a new journey.
+Intervention thisJourney = ScriptableObject.CreateInstance&lt;Intervention&gt;();
+
+// Fill in the cards values.
+thisJourney.Name = values[2];
+thisJourney.Description = values[13];
+thisJourney.Type = values[6];
+thisJourney.Path = values[7];
+float.TryParse(values[9], out thisJourney.Cost);
+
+if(values[8] != "")
+{
+	thisJourney.Awareness = values[8].ToCharArray()[0];
+}
+            
+float.TryParse(values[10], out thisJourney.Power);
+int.TryParse(values[1], out thisJourney.FrequencyWeight);
+int.TryParse(values[0], out thisJourney.Id);
+					</code></pre>
+						</div>
+						<div class="code-content">
+							<p class="text-content">Creating a new Card</p>
+							<pre><code>
+#if UNITY_EDITOR
+// Add the card to the folder.
+string thisJourneyPath = interventionPath + thisJourney.Name + ".asset";
+AssetDatabase.CreateAsset(thisJourney, thisJourneyPath);
+#endif
+
+// Add to card list.
+bManager.AddToInterventionLists(thisJourney);
+
+// Add to skill tree.
+skillTreeManager.AddCardToSkillTree(thisJourney);
+					</code></pre>
+						</div>
+						</div>
+					<video class="video-content" autoplay muted loop playsinline>
+						<source src="Videos/Wellhero_TSVVid.mp4">
+					</video>
+					
+					<h1 class="text-content">Analytics</h1>
+					<div class="content-holder-hor">
+						<img class="image-content" src="Images/1x/Wellhero/Wellhero_Analytics.png"/>
+						<p class="text-content">This was my first time using any sort of analytics for a game. I started with Google Firebase, however migrated to Unity Analytics when we upgraded the project to Unity 6 last December. Organizing events to determine user retention and contention points was a new experience that led me to learn more about how to keep a player playing.<br><br>This is from our in-house playtesting, displayed on the Unity Cloud website.</p>
+					</div>
+				</div>			
+			</div>
+			
+			
+			<!-- SAVING -->
+			<div class="dropdown">
+				<img src="Images/1x/Wellhero/Wellhero_Saving.png" class="dropdown-toggle-image" alt="Click for content!"/>
+				<div class="dropdown-content">
+					<h1 class="text-content">Save Manager</h1>
+					<p class="text-content">Wellness Hero is an endeavor that I joined after my experience with Linn Falls, so I was already experienced with saving for mobile devices. Where Wellness Hero differs is how much information is saved. There are a lot of things to keep track of: player level, the interventions they have integrated (saved), the level of each intervention category, the placement and information regarding the towers on the field, etc. Each script that needs something saved has a unique class and a Save function that can be called from a central SaveManager that collects and exports everything into a JSON file to load for the next play session.</p>
+					<div class="code-row">
+						<div class="code-content">
+							<p class="text-content">Save Manager collecting Data</p>
+							<pre><code>
+// Collect and save our data!
+public void SaveData()
+{
+	// Start collecting our data.
+	SaveData allData = new SaveData
+	{
+		EXPERIENCEDATA = experienceManager.Save(),
+		INTEGRATIONDATA = integrationManager.Save(),
+		INVENTORYDATA = inventoryManager.Save(),
+		DEPRESSIONDATA = depressionManager.Save(),
+		WEEKLYDATA = weekManager.Save(),
+		ROMANTICDATA = romanticTower.Save(),
+		SUPPORTDATA = supportTower.Save(),
+		TOWERDATA = towerManager.Save(),
+		WINDATA = winManager.Save(),
+		TUTORIALDATA = tutorialManager.Save()
+	};
+
+	// Save to file.
+	string json = JsonConvert.SerializeObject(allData, Formatting.Indented);
+	File.WriteAllText(filePath, json);
+	print("Data saved.");
+}
+					</code></pre>
+						</div>
+						<div class="code-content">
+							<p class="text-content">Saving our Placed Event Towers</p>
+							<pre><code>
+// Gets our save data.
+public TowerData Save()
+{
+	// Create an array storing our active event towers.
+	EventData[] towersToSave = new EventData[eventTowers.Count];
+
+	// Loop through our eventTowers and add to array.
+	for(int i=0; i&lt;towersToSave.Length; i++)
+	{
+		EventData newTower = new EventData
+		{
+			XPOS = eventTowers[i].transform.position.x,
+			YPOS = eventTowers[i].transform.position.y,
+			ZPOS = eventTowers[i].transform.position.z,
+			THISEVENT = eventTowers[i].GetComponent&lt;EventTower&gt;().GetEvent(),
+			TOTALCOST = eventTowers[i].GetComponent&lt;EventTower&gt;().GetTotalCost()
+		};
+
+		towersToSave[i] = newTower;
+	}
+
+	TowerData data = new TowerData
+	{
+		TOWERS = towersToSave
+	};
+
+	return data;
+}
+					</code></pre>
+						</div>
+						</div>
+					<h1 class="text-content">Debugs</h1>
+					<div class="content-holder-hor">
+						<img class="image-content" src="Images/1x/Wellhero/Wellhero_SaveDebugs.png"/>
+						<p class="text-content">Again, on the topic of making everyones lives easier, I was able to hook up some buttons to save and erase data from the editor. This has also saved up a lot of time testing and I thought it was worth noting.</p>
+					</div>
+				</div>
+				
+			</div>
+			
+			
+			<!-- POST MORTEM -->
+			<!--<div class="dropdown">
+				<img src="Images/1x/Wellhero/Wellhero_PostMortem.png" class="dropdown-toggle-image" alt="Click for content!"/>
+				<div class="dropdown-content">
+					
+				</div>
+				
+			</div>-->
+		</div>
+
+		<!-- STICKY WINDOW -->
+		<div class="right-column">
+			<div class="sticky-box">
+				<h2 style="font-size: 30px;"><em><strong>Wellness Hero (WIP)</strong></em></h2>
+				<p style="font-size: 25px;"><strong>Lead Programmer</strong></p>
+				<p>Ensemble Interactive</p>
+				<p>January 2024 - present</p>
+				<p>Skills: <a style="color: black;">Mobile Development/Publishing, Dynamic Resolutions, Analytics, iOS, Android, C#</a></p>
+				<!--<img src="Images/1x/Kibo/KiboLooking.png"/>-->
+				<video autoplay muted loop playsinline>
+					<source src="Videos/Wellhero_TrailerVid.mp4">
+				</video>
+			</div>
+	  	</div>
+		
+	</div>
+
+	<!-- DROPDOWN LOGIC -->
+	<script>
+		document.querySelectorAll('.dropdown-toggle-image').forEach(button =>{
+			button.addEventListener('click', ()=>{
+				const content = button.nextElementSibling;
+				content.classList.toggle('open');
+			});
+		});
+	</script>
+	
+	<script src="libs/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<!--<script src="prism.js"></script>-->
+</body>
+</html>

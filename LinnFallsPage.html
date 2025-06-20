@@ -10,114 +10,127 @@
 
 <body>
 	
-	<!-- BACKGROUND VIDEO -->
+	<!-- BACKGROUND -->
 	<img src="Images/1x/Linn Falls/LinnFalls_Background.png" style="width: 100%; height: 100%; z-index: -11; position: fixed;"/>
 	
 	<div class="page-container">
 		<div class="left-column">
 			<!-- PROJECT DROPDOWNS -->
+			
+			<!-- OVERVIEW -->
 			<div class="dropdown">
-				<img src="Images/1x/Kibo/Kibo_Overview.png" class="dropdown-toggle-image" alt="Click for content!"/>
+				<img src="Images/1x/Linn Falls/LinnFalls_Overview.png" class="dropdown-toggle-image" alt="Click for content!"/>
 				<div class="dropdown-content">
 					<div class="content-holder-hor">
-						<p class="text-content"><em>KiBo</em> was an experimental project that a friend and I worked on right after we both finished our degrees. It was an extremely rewarding game to work on due to how challenging it ended up being. I was extremely focused on networking challenges and player conveyance throughout the three weeks we had for the project. <em>KiBo</em> was created for the <a href="https://itch.io/jam/tgcxcoreblazer" target="_blank" style="color: gold">thatgamecompany x COREBLAZER GAME JAM 2025</a>, which released the theme of generosity. After a few brainstorming sessions, the idea of <em>ending your own gameplay experience to allow future players to progress further than you</em> was what we settled on. Thus, the main concept of praying to turn into a statue was born and <em>KiBo</em> was created.</p>
-						<img class="image-content" src="Images/1x/Kibo/Kibo_Standing.png"/>
+						<p class="text-content">Linn Falls is a relaxing puzzle game that is designed to get more complicated as you go through the levels. With mechanics like tapping (to break rocks and flip levers) and dragging (to move boulders and rotate the camera), there is no shortage of unique interactions to explore.<br><br>There are two worlds with ten levels each, an endless mode, and a nighttime mode!<br><br>This was the first project that I produced, and I could not be more proud of the end result!<br><br>Some of the core aspects that we decided on going into production was the orthographic camera, cozy atmosphere, relatively easy puzzles, and low fidelity graphics. I set these pillars up to align everyones vision throughout the project.</p>
 					</div>
-					<p class="text-content">KiBo is the name of the character you play as; an alien creature with a curious disposition. Use your hands to pick up objects and maneuver around the map. Explore the temple and progress further inside to uncover why KiBo wants to make its way through. How do you get past these gates? What do those statues mean? Play to find out!</p>
+					<video class="video-content" autoplay muted loop playsinline>
+							<source src="Videos/LinnFalls_TutorialVid.mp4">
+					</video>
 				</div>
 			</div>
+			
+			<!-- WATER -->
 			<div class="dropdown">
-				<img src="Images/1x/Kibo/Kibo_Networking.png" class="dropdown-toggle-image" alt="Click for content!"/>
+				<img src="Images/1x/Linn Falls/LinnFalls_Water.png" class="dropdown-toggle-image" alt="Click for content!"/>
 				<div class="dropdown-content">
-					<p class="text-content">At the end of the game, you have the option of praying to leave your statue in the world. This lights a torch in the final room and when all the torches are lit, the portal to Nirvana opens!</p>
-					<p class="text-content">Creating KiBo meant creating a multiplayer experience in a very short amount of time (approximately three weeks). Now, I am no stranger to multiplayer, having created many small projects in the past. However, creating something this fast was new to me. I also needed to experiment with a new server architecture, as peer-to-peer would not let all the players affect one grand total of statues. My solution was (admittedly rushed due to lack of experience) to run a server off my laptop and allow all players to connect directly to it during the duration of the jam.</p>
 					<div class="content-holder-hor">
-						<p class="text-content">I created a DirectConnectionManager which had enough versatility to allow me to toggle if a build of KiBo should be a server or client build. This script was also engineered in mind to allow for the  server to shut down and move to a different machine. Player’s statue positions are saved to the server machine and reloaded when the server starts up. I also wanted to have versatility if too many players were playing the game too fast; this led to the creation of a script that initialized the torches (number of players needed) over the network when the server first starts up. This way, I can shut the server down, move the statue save over to a new machine if necessary, and relaunch the server in the exact same state it was in before it shut down!</p>
+						<p class="text-content">At the very core of Linn Falls is water. The entire premise of the game is to find a way to get the water flowing downward off the screen. That being so, the water system took up the most of my time during the development period. The inital water system went though numerous small changes to allow it to update as performant and dynamic as possible. I ended up with a system that uses queues that water blocks can add themselves to for an update next cycle. Three queues are used, one for just receiving an update, one for getting polluted, and one for destroying. Once I had laid the groundwork with these queues, the water was able to dynamically update through a level.<br><br>Water is split up into "Source" blocks and "Water" blocks. Source blocks act as the origin point of a levels water flow. Usually placed above the screen to give the illusion of the water flowing from the previous level, Source blocks hold the queues and are used to check if pollution has corrupted too much of a level. This video showcases the water system in action alongside the pipe mechanic.</p>
 						<video class="video-content" autoplay muted loop playsinline>
-							<source src="Videos/Kibo_Friend.mp4">
+							<source src="Videos/LinnFalls_WaterVid.mp4">
 						</video>
 					</div>
-				</div>
-			</div>
-			<div class="dropdown">
-				<!-- DROPDOWN IMAGE and TEXT -->
-				<img src="Images/1x/Kibo/Kibo_IK.png" class="dropdown-toggle-image" alt="Click for content!"/>
-				
-				<div class="dropdown-content">
-					<p class="text-content">There were a few challenges during our three-week sprint. Inverse Kinematics was something I had very little experience with, and it took a lot of trial and error to have the hands move in a way that I felt was appropriate for a creature like KiBo. I ended up with a GrabManager script which informed Hand scripts on where to smoothly translate the IK target to.</p>
 					<div class="content-holder-hor">
-						<p class="text-content">Just one day before the game was due for submission, we ran a playtest with only two players… and the server crashed in under three minutes. I was distraught. Getting to work immediately, I found the issue to be how large the packets were that each client was sending to the server. I found the issue (which ended up being completely, 100% my fault) and was able to write a new script that compiled the IK target information and send that over the network. This was necessary as before I had attached a NetworkTransform component to every bone that IKs were affecting; over 30 bones per player updating every frame (oops!).</p>
 						<video class="video-content" autoplay muted loop playsinline>
-							<source src="Videos/Kibo_IK.mp4">
+							<source src="Videos/LinnFalls_NewWaterVid.mp4">
 						</video>
+						<p class="text-content">I loved developing the water system because it was something I had never done before. About a year and a half later, I went back and improved a lot of the systems with the goal of eventually improving the visuals of Linn Falls. This water is not a part of the mobile game, however it showcases efforts to create something that updates "smoother" than the tick updates of the previous water system. This new water system also uses object-pooling for better return on investment with each water block and a HashSet to determine which locations are occupied which speeds up searches considerably.</p>
 					</div>
 					<div class="code-row">
 						<div class="code-content">
-							<p class="text-content">Sending IK Targets</p>
+							<p class="text-content">Spawning a new water block</p>
 							<pre><code>
-// Create an ikdata array the same length as our targets array.
-IKTargetData[] ikData = new IKTargetData[ikTargetsToSend.Length];
+// Spawns a new groundwater block at location. Adds the block to the spawn queue.
+private void SpawnGroundwaterBlock(Vector3 offset){
+	// Get location and spawn block.
+	Vector3 spawnLocation = transform.position + offset;
 
-// Loop through our ik target data and grab all of their transform data.
-for (int i = 0; i %lt; ikData.Length; i++)
-{
-	// The first one should be the head ik.
-	if (i == 0)
-	{
-		ikData[i] = new IKTargetData(ikTargetsToSend[i].position, ikTargetsToSend[i].rotation, headConstraint.weight);
-	}
-	else
-	{
-		ikData[i] = new IKTargetData(ikTargetsToSend[i].position, ikTargetsToSend[i].rotation, ikConstraints[i - 1].weight);
-	}
+	GameObject temp = Instantiate(groundwaterBlock, spawnLocation, SpawnDirection(spawnLocation));
+	Water tempWater = temp.GetComponent&lt;Water&gt;();
+
+	// Name the block.
+	temp.transform.name = "Groundwater  " + Source.instance.GetNameNumber();
+
+	// Child the block.
+	temp.transform.parent = Source.instance.transform;
+
+	// Pollution status
+	if(isPolluted)
+		Source.instance.AddToQueue(tempWater, 2);
+
+	// Assign value to new block.
+	tempWater.SetValue();
+
+	// Add the block to the spawn queue.
+	Source.instance.AddToQueue(tempWater, 0);
 }
-
-UpdateIKTargetsRPC(ikData);
 					</code></pre>
 						</div>
 						<div class="code-content">
-							<p class="text-content">Receiving IK Targets</p>
+							<p class="text-content">Spawn queue Update</p>
 							<pre><code>
-[Rpc(SendTo.ClientsAndHost)]
-private void UpdateIKTargetsRPC(IKTargetData[] ikData)
-{
-	// We should ignore our own updates.
-	if (IsOwner)
-		return;
+// Spawning
+private void SpawnQueue(){
+	// Go through spawn queue and call spawn function for Water.
+	int qCount = spawnQueue.Count;
+	//print(qCount); 
 
-	// Loop through our targets and set their positions.
-	for (int i = 0; i &lt; ikData.Length; i++)
-	{
-		ikTargetsToSend[i].position = ikData[i].Position;
-		ikTargetsToSend[i].rotation = ikData[i].Rotation;
+	while(qCount &gt; 0){
+		spawnQueue.Dequeue().SpawnCheck();
 
-		smoothedTargets[i].m_TargetPosition = ikData[i].Position;
-		smoothedTargets[i].m_TargetRotation = ikData[i].Rotation;
-
-		// The first one should be the head ik.
-		if (i == 0)
-		{
-			headConstraint.weight = ikData[i].Weight;
-		}
-		else
-		{
-			ikConstraints[i - 1].weight = ikData[i].Weight;
-		}
+		qCount--;
 	}
+
+	spawnCooldown = spawnBuffer;
 }
 					</code></pre>
 						</div>
 						
 					</div>
 					
-					
 				</div>
 			</div>
+			
+			<!-- MECHANICS -->
 			<div class="dropdown">
-				<img src="Images/1x/Kibo/Kibo_PostMortem.png" class="dropdown-toggle-image" alt="Click for content!"/>
+				<!-- DROPDOWN IMAGE and TEXT -->
+				<img src="Images/1x/Linn Falls/LinnFalls_Mechanics.png" class="dropdown-toggle-image" alt="Click for content!"/>
+				
+				<div class="dropdown-content">					
+					<div class="content-holder-hor">
+						<video class="video-content" autoplay muted loop playsinline>
+							<source src="Videos/LinnFalls_LeverTestVid.mp4">
+						</video>
+						<p class="text-content">The second half of Linn Falls' gameplay are the various mechanics that act upon the water. These include tappable rocks, flippable levers, rotating pipes, sliding rocks, and polluted water. Each of these mechanics was designed to be unique, fun, and to be used in tandem with other mechanics. For example, a rock might be blocking a lever that needs to be flipped, or a sliding rock is blocking off polluted water.<br><br>We had enough time to add an extra gamemode in as well, our endless mode. Endless mode procedurally lines up islands, allowing infinite randomized play! I would have loved to find a way to generate unique islands but we had decided that was not within our scope. Still, endless mode was super fun to create and balance!</p>
+					</div>
+					<p class="text-content">The last feature developed was our nighttime mode, which pits the player up against the darkness. This runs through the normal 20 levels of Worlds 1 and 2 with the added challenge of low visibility. Glowing plants light up the path as water reaches them which makes the levels feel alive.</p>
+					<div class="content-holder-hor">
+						<video class="video-content" autoplay muted loop playsinline>
+							<source src="Videos/LinnFalls_EndlessVid.webm">
+						</video>
+						<video class="video-content" autoplay muted loop playsinline>
+							<source src="Videos/LinnFalls_NighttimeVid.mp4">
+						</video>
+					</div>
+				</div>
+			</div>
+			
+			<!-- POST MORTEM -->
+			<div class="dropdown">
+				<img src="Images/1x/Linn Falls/LinnFalls_PostMortem.png" class="dropdown-toggle-image" alt="Click for content!"/>
 				<div class="dropdown-content">
-					<p class="text-content">KiBo has grown to become my favorite project I have worked on. There were so many different elements that took a lot of trial and error, and I learned more in those three weeks than I did over the course of some entire projects. As demanding as it was, I will work twice as hard for the next game jam I participate in. I hope to carry some of the procedural animation tactics I learned into my future projects, bringing even more life into whatever experience I am creating.</p>
-					<img class="image-content" src="Images/1x/Kibo/Kibo_Stars.png"/>
+					<p class="text-content">Linn Falls was an incredibly fun project to work on. Although the inevitable issues arrived, this project was truly made incredible just because of the team working on it.<br><br>Our biggest issues proved to be technical. Problems with our water shader had us showcasing our game with white boxes for most of production. The water flowing itself was a complicated algorithm that took a few months and numerous reworks to perfect. With Click Up being a software I had never used and project management something new to me at the time, there were weeks with delayed communication on my part. This was a large oversight on my part and was fixed with a set schedule of team meetings which in turn increased our understanding of the game and our morale in general.<br><br>I am incredibly grateful to call Linn Falls a project of mine and Team Azure a team that I had a part in leading.</p>
+					<img class="image-content" src="Images/1x/Linn Falls/LinnFalls_ThankYou.png"/>
 				</div>
 			</div>
 		</div>
@@ -125,15 +138,16 @@ private void UpdateIKTargetsRPC(IKTargetData[] ikData)
 		<!-- STICKY WINDOW -->
 		<div class="right-column">
 			<div class="sticky-box">
-				<h2><em>KiBo</em></h2>
-				<p>Polariis</p>
-				<p>Co-Producer and Programmer</p>
-				<p>May 2025 - June 2025</p>
-				<p>Skills: <a style="color: black;">Unity Networking, Server-client Architecture,<br>Inverse Kinematics, C#</a></p>
-				<p><a target="_blank" href="https://carson-moon.itch.io/kibo" style="color: gold;">Download on Itch.io here!</a></p>
+				<h2><em>Linn Falls</em></h2>
+				<p>Team Azure</p>
+				<p>Producer and Programmer</p>
+				<p>August 2023 - December 2023</p>
+				<p>Skills: <a style="color: black;">Mobile Development, Android, C#, Publishing</a></p>
+				<p><a target="_blank" href="https://play.google.com/store/apps/details?id=com.TeamAzure.LinnFalls" style="color: gold;">Available on Google Play here!</a></p>
+				<p><a target="_blank" href="https://dmercado-knights.itch.io/linn-falls" style="color: gold;">Download on Itch.io here!</a></p>
 				<!--<img src="Images/1x/Kibo/KiboLooking.png"/>-->
 				<video autoplay muted loop playsinline>
-					<source src="Videos/Kibo_Trailer.mp4">
+					<source src="Videos/LinnFalls_Trailer.webm">
 				</video>
 			</div>
 	  	</div>

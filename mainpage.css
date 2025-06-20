@@ -1,15 +1,5 @@
 @charset "utf-8";
 /* CSS Document */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  margin: 0;
-  padding: 0;
-  /*overflow: hidden;*/
-}
 /* Background video, takes up the entire viewport */
 #bg-video {
   position: fixed;
@@ -129,9 +119,6 @@ body {
   max-width: 100%;
   height: auto;
   border-radius: 10px;
-}
-html {
-  font-size: 16px;
 }
 .text-content p {
   font-size: 1rem;

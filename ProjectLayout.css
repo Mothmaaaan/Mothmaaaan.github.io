@@ -16,7 +16,7 @@ html, body {
 	z-index: -1;
 }
 
-p{
+p, ul{
 	font-size: 20px;
 }
 
@@ -58,6 +58,13 @@ pre{
 	padding: 1rem;
 }
 
+.list-content{
+	font-family: Verdana;
+	color: white;
+	width: 100%;
+	padding: 1rem;
+}
+
 .image-content{
 	width: 100%;
 	max-width: 600%;
@@ -91,6 +98,9 @@ pre{
 	width: 100%;
 	height: auto;
 	border-radius: 12px;
+	display: block;
+	max-width: 50vw;
+	margin: 0 auto;
 }
 
 /* Right column: contains the sticky box */
@@ -108,9 +118,9 @@ pre{
   	background-position: center;
   	height: auto;
   	border-radius: 12px;
-  	padding: 1rem;
+  	padding: 1rem
   	box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-	margin-top: 25%;
+	margin-top: 10%;
 	
 	/* GLASSMORPHISM */
 	/* From https://css.glass */
@@ -232,4 +242,47 @@ pre{
 	width: auto;
 	max-height: 1000vh;
 	padding: 0 1rem;
+}
+
+.header-banner{
+	width: 100vw;
+	height: 10vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	
+	/* GLASSMORPHISM */
+	/* From https://css.glass */
+	background: rgba(159, 239, 223, 0);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+}
+
+.header-left{
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.header-right{
+	height: 100%;
+	display: flex;
+	gap: 5vw;
+	object-fit: contain;
+	margin-right: 1rem;
+	margin-top: 1rem;
+}
+
+.header-content-box{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header-image{
+	height: 100%;
 }

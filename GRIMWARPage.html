@@ -1,0 +1,235 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<link rel="stylesheet" href="ProjectLayout.css"/>
+	<link rel="stylesheet" href="prism.css"/>
+	<link rel="stylesheet" href="libs/github-dark.css"/>
+<title>Carson Moon | GRIMWAR</title>
+</head>
+
+<body>
+	
+	<!-- BACKGROUND VIDEO -->
+	<img src="Images/1x/GRIMWAR/GRIMWAR_Background.png" style="margin: 0; padding: 0; width: 100%; height: 100%; z-index: -11; position: fixed;"/>
+	<!--<video autoplay muted loop playsinline id="bg-video">
+		<source src="Videos/KiboBackground.webm">
+	</video>-->
+	
+	<div class="page-container">
+		<div class="left-column">
+			<!-- PROJECT DROPDOWNS -->
+			<!-- OVERVIEW -->
+			<div class="dropdown">
+				<img src="Images/1x/GRIMWAR/GRIMWAR_Overview.png" class="dropdown-toggle-image" alt="Click for content!"/>
+				<div class="dropdown-content">
+					<p class="text-content">GRIMWAR is a fast-paced mobility shooter focused on tight movement and quick combat! Defy gravity and blast enemies on a high-speed race through a fading world of magic. Escape the arch mage's tower; wielding the very spells that trapped you in the first place! With mechanics such as sliding, wall-running, teleporting, and speed boosts, GRIMWAR allows the player to progress however they see fit.<br><br>BookWyrm was a team of twelve people who brought GRIMWAR to life!<br><br>When conceiving GRIMWAR, there were a few important marks that we wanted to hit. The game needed to be fast. It needed to give the player many means of moving forward through levels. It needed to be satisfying, electrifying, and FUN.<br><br>I am proud to say that we believe we hit all of those marks. Although there are always areas to improve, GRIMWAR turned out to be an incredible project to work on and play.</p>
+					<!-- INTRO VIDEO -->
+					<div class="content-holder-hor">
+						<video class="video-content" autoplay muted loop playsinline>
+							<source src="Videos/GRIMWAR_IntroVid.mp4">
+						</video>
+					</div>
+					
+				</div>
+				
+				
+				
+			</div>
+			
+			<!-- PLAYER -->
+			<div class="dropdown">
+				<img src="Images/1x/GRIMWAR/GRIMWAR_Player.png" class="dropdown-toggle-image" alt="Click for content!"/>
+				<div class="dropdown-content">
+					<p class="text-content">Player movement went through the most iterations from the beginning of the project to the end. Actually, player movement was still being tweaked just <em>three weeks</em> before we released on Steam. Partially due to changing mechanics, partially due to myself finding new and better ways to handle player movement, it was ever evolving. I created something with a border-line overwhelming amount of variables to tweak and configure. I made sure our level designers understood what everything did, either through code comments or explaining to them in person. One of the hardest parts of the movement was allowing the player to experience outside forces while also giving a limit to how fast they could move, as the players max speed increases through certain mechanics in the game. I had been limiting the players speed by directly capping their velocity manually, when I switched to manipulating if the players input was going through or not all of my problems with this issue disappeared.</p>
+					<!-- VIDEO OF SPEEDING THROUGH A LEVEL AND WALL RUNNING -->
+					<video class="video-content" autoplay muted loop playsinline>
+						<source src="Videos/GRIMWAR_ArenaVid.mp4">
+					</video>
+				</div>
+				
+			</div>
+			
+			<!-- ENEMIES -->
+			<div class="dropdown">
+				<img src="Images/1x/GRIMWAR/GRIMWAR_Enemies.png" class="dropdown-toggle-image" alt="Click for content!"/>
+				<div class="dropdown-content">
+					<p class="text-content">There are four main enemies in GRIMWAR: the Necronomicon, the Gargoyle, the Owlbear, and the Grimlock.</p>
+					
+					<div class="content-holder-hor">
+						<p class="text-content">The Necronomicon was the first enemy I created. I started with it because it acts as a fodder enemy; many of them are constantly flying around and act more as a nuisance that the player has to deal with than a source of danger. I immediately ran into my first challenge in GRIMWAR's development: navigation for flying enemies. Through my research, I ended up coming to the conclusion that setting up a pathfinding system through our 3D environments would be overkill for the Necronomicon, and so I went with an approach that uses positioins as waypoints instead. This allows the level designers and I to place specific points that the Necronomicons can travel to if they lose sight of the player, keeping our pathfinding overhead as fine-tuned as we want. After some trial and error, the rest of the enemy came down to tweaking some force values to make their attacks feel nice and impactful! These waypoints ended up being a life-saver later on; we did not have to deal with any funky enemy traversal within some of our weirder environments.</p>
+						<!-- VIDEO OF THE NECRONOMICON FLYING AND ATTACKING -->
+						<video class="video-content" autoplay muted loop playsinline>
+							<source src="Videos/GRIMWAR_WaypointsVid.mp4">
+						</video>
+					</div>
+					
+					<div class="content-holder-hor">
+						<!-- VIDEO OF THE GARGOYLE TRACKING AND ATTACKING -->
+						<video class="video-content" autoplay muted loop playsinline>
+							<source src="Videos/GRIMWAR_GargoyleVid.mp4">
+						</video>
+						<p class="text-content">Gargoyles were another enemy that had a super interesting approach! These are stationary enemies that track the player with their heads and fire a laser after a small charge-up. There are two parts to its attack: the follow and the charge. Due to lacking any animations for the gargoyle at the time, and no artist on our team being too familiar with animation, both of these were accomplished by me through script. The follow was accomplished by rotating the head bone of the rig with certain limitations to prevent wild scenarios. The charge was created by rotating the neck of the gargoyle to simulate it focusing the beam from its mouth. Creating this attack entirely through C# meant that I could fine tune aspects of it that I could not if it was an animation. Timings were easy to manipulate without having to worry about the rest of the animation becoming too fast or slow.</p>					
+					</div>
+					
+					<div class="content-holder-hor">
+						<p class="text-content">The Owlbear was originally a huge pain-point in our development. It was regulated to our second programmer, but I eventually ended up taking a stab at it. The owlbear was designed to be a brute kind of enemy, charging directly at the player to do damage. Previous implementations were rendering the owlbear floating above the ground and phasing through walls. When I took over its development, I thought that our waypoint system would be a perfect fit for the enemy. It ended up working nicely! The owlbear was able to follow the player, and re-route when it lost line-of-sight, making it an ever-present danger!</p>
+						<!-- VIDEO OF GETTING CHASED BY AN OWLBEAR -->
+						<video class="video-content" autoplay muted loop playsinline>
+							<source src="Videos/GRIMWAR_OwlbearVid.mp4">
+						</video>
+					</div>
+					
+					<div class="content-holder-hor">
+						<!-- VIDEO OF THE GRIMLOCK HERE -->
+						<video class="video-content" autoplay muted loop playsinline>
+							<source src="Videos/GRIMWAR_GrimlockVid.mp4">
+						</video>
+						<p class="text-content">GRIMWAR was lacking any enemies that were super dangerous by themselves. The Grimlock was the solution to that problem. Summoning, teleporting, and shooting projectiles are all aspects of the Grimlock's kit. Each one of these mechanics were implemented to be as dangerous as possible while remaining fair to the player. Teleporting was set up through waypoints like before. These could be placed so the Grimlock had vantage points to retreat to if the player got too close. Summoning and fireballs were instantiated and set to immediately be aware of the player. Fireballs continuously home in on the player, the only way to avoid them is to lead them into a solid object. The Grimlock was super fun to create and mess with during development. The Grimlock was tweaked to spawn in three enemies at a time. If multiple fireballs are sent for the player, they will merge on collision and form a larger, more dangerous fireball!</p>						
+					</div>
+					
+					<div class="content-holder-hor">
+						<p class="text-content">Due to having some extra room in our scope, we incorporated various aspects of the existing enemies into a few enemy variants. The flying gargoyle does exactly what the gargoyle does, except it can follow the player throughout the level utilizing the same waypoint system as the necronomicons. The leaping owlbear can jump at the player, adding a lever of verticality to its attacks.</p>
+					</div>
+					
+					<!-- VIDEO OF FLYING GARGOYLE AND GIORDANO -->
+					<video class="video-content" autoplay muted loop playsinline>
+						<source src="Videos/GRIMWAR_LeapingOwlbearVid.mp4">
+					</video>
+				</div>
+				
+			</div>
+			
+			<!-- SPELLS -->
+			<div class="dropdown">
+				<img src="Images/1x/GRIMWAR/GRIMWAR_Spells.png" class="dropdown-toggle-image" alt="Click for content!"/>
+				<div class="dropdown-content">
+					<p class="text-content">Spells are found throughout the game, and they give the player a means of dealing damage. Spells have an invoke ability, which deals damage and can be used as many times as needed. Spells also have a destroy ability, which grants a movement ability. Destroy abilities use up the spell you are holding. Finally, spells have a combonation ability which destroys both spells you are holding. You can only perform a combination attack if you have two of the same spell; these attacks are buffed-up versions of the destroy attacks.</p>
+					<p class="text-content">Gravity, Dreams, and Lightning were the spells that I developed fully; I also developed the destroy ability of Pestilence. Gravity and Pestilence are projectile based and Lightning is a constant collider that deals tick damage. All of these spells were developed under a parent system that used scriptable objects to hold spell information (damage, range, cooldown, etc.) on pickup.</p>
+					<p class="text-content">I developed teleports, area of effect damage, raycast and projectile based attacks, speed boosts, and flight for the different spells.</p>
+					<video class="video-content" autoplay muted loop playsinline>
+						<source src="Videos/GRIMWAR_SpellsVid.mp4">
+					</video>
+				</div>
+				
+				
+			</div>
+			
+			<!-- SYSTEMS -->
+			<div class="dropdown">
+				<img src="Images/1x/GRIMWAR/GRIMWAR_Systems.png" class="dropdown-toggle-image" alt="Click for content!"/>
+				<!-- CHECKPOINT, SPELL DATA, SETTINGS MANAGER, HANDS ANIMATION MANAGER, ENEMY WAVE SPAWNERS, GHOST MODE, ARENA MODE -->
+				<div class="dropdown-content">
+					<p class="text-content">I developed numerous gameplay systems for GRIMWAR. These include: checkpoints, spell data, settings manager, hand animation manager, custom update loops, enemy wave spawners, speedrun-ghost, aim-assist, and an endless arena game mode. Each of these systems were developed with the idea of new levels being introduced and to work in tandem with each other.</p>
+					
+					<div class="code-row">
+						<div class="code-content">
+							<p class="text-content">Updating our Custom Ticks</p>
+							<pre><code>
+void Update()
+{
+	// Update our small tick timer.
+	smallTickTimer += Time.deltaTime;
+
+	if(smallTickTimer &gt;= smallTickTimerMax)
+	{
+		smallTickTimer -= smallTickTimerMax;
+
+		smallTickEvent.Invoke();
+	}
+
+	// Update our large tick timer.
+	largeTickTimer += Time.deltaTime;
+
+	if(largeTickTimer &gt;= largeTickTimerMax)
+	{
+		largeTickTimer -= largeTickTimerMax;
+
+		largeTickEvent.Invoke();
+	}
+}
+					</code></pre>
+						</div>
+						</div>
+						
+						<p class="text-content">One of my favorite concepts was limiting when enemies were ticking. Enemies did not need to track the player every frame, and so a custom update loop was created with timers and unity events. Enemies were able to sign up to the update loop and only tick when the respective event was called. This helped keep our performance steady and ensured we did not have hundreds of unnecessary updates.</p>
+						<p class="text-content">Something I had never created before was a speedrun ghost! At the end of each level, it records your total time and saves it to a JSON if it was less than your current best. Positions and rotations are collected periodically. This code shows how I was able to move the ghost smoothly even though positions and rotations were not collected every frame. Using the timestamps of when the positions and rotations were collected, I was able to ensure the ghost was accurate. All of this is taking place within a coroutine which calls itself again if it has a new position to move to.</p>
+					<div class="code-row">
+						<div class="code-content">
+							<p class="text-content">Moving the Speedrun Ghost</p>
+							<pre><code>
+// Get our previous and next positions.
+Vector3 prev = m_CurrentGhostData._positions[currentIndex - 1];
+Vector3 next = m_CurrentGhostData._positions[currentIndex];
+
+// Get our previous and next rotations.
+Quaternion prevRot = m_CurrentGhostData._rotations[currentIndex - 1];
+Quaternion nextRot = m_CurrentGhostData._rotations[currentIndex];
+
+// Get the time it takes to move from this previous position to the next.
+float duration = m_CurrentGhostData._timeStamps[currentIndex] -
+                        m_CurrentGhostData._timeStamps[currentIndex - 1];
+
+while (time &lt; duration)
+{
+m_CurrentGhost.position = Vector3.Lerp(prev, next, time / duration);
+m_CurrentGhost.rotation = Quaternion.Lerp(prevRot, nextRot, time / duration);
+
+yield return null;
+time += Time.deltaTime;
+}
+
+m_CurrentGhost.position = next;
+m_CurrentGhost.rotation = nextRot;
+					</code></pre>
+						</div>
+						</div>
+					<video class="video-content" autoplay muted loop playsinline>
+						<source src="Videos/GRIMWAR_GhostVid.mp4">
+					</video>
+				</div>
+			</div>
+			
+			<!-- POST MORTEM -->
+			<div class="dropdown">
+				<img src="Images/1x/GRIMWAR/GRIMWAR_PostMortem.png" class="dropdown-toggle-image" alt="Click for content!"/>
+				<div class="dropdown-content">
+					<p class="text-content">GRIMWAR is the largest project I have been a part of so far and I am satisfied with all that I was able to get done. Although we are going to release one more update in Summer 2025, GRIMWAR in its current state can be called complete. As code lead, I kept better communication with the team than I had in the past with Linn Falls and it definitely made the project smoother. We had weekly meetings set up by our Producer and Creative Director which encouraged communication between the entire team. This is a practice I hope to continue with any future teams that I am a part of. My task management abilities got better as this project continued, as well as my planning. As new systems were added, more and more planning went into each one.<br><br>There were many different features to develop, the most of any game I had created at that point. It got overwhelming pretty quickly at the beginning of the project before our vertical slice. After sitting down and listing everything that I needed to accomplish, I was able to produce a list with timeframes that really helped me organize my thoughts. I was able to get everything done that I planned for!<br><br>GRIMWAR was an amazing project to be a part of, check it out on Steam if it sounds interesting!</p>
+					<img class="image-content" src="Images/1x/GRIMWAR/GRIMWAR_Credits.png"/>
+				</div>
+				
+			</div>
+		</div>
+
+		<!-- STICKY WINDOW -->
+		<div class="right-column">
+			<div class="sticky-box">
+				<h2><em>GRIMWAR</em></h2>
+				<p>BookWyrm</p>
+				<p>Lead Programmer</p>
+				<p>September 2024 - May 2025</p>
+				<p>Skills: <a style="color: black;">Player Movement, Animation Handling, Enemy AI, Gameplay Systems, Menus, JSON Saving, Collecting Player Feedback, ClickUp, C#</a></p>
+				<p><a target="_blank" href="https://store.steampowered.com/app/3649130/GRIMWAR/" style="color: gold;">Download on Steam today!</a></p>
+				<video autoplay muted loop playsinline>
+					<source src="Videos/GRIMWAR_30SecondTrailer.mp4">
+				</video>
+			</div>
+	  	</div>
+		
+	</div>
+
+	<!-- DROPDOWN LOGIC -->
+	<script>
+		document.querySelectorAll('.dropdown-toggle-image').forEach(button =>{
+			button.addEventListener('click', ()=>{
+				const content = button.nextElementSibling;
+				content.classList.toggle('open');
+			});
+		});
+	</script>
+	
+	<script src="libs/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<!--<script src="prism.js"></script>-->
+</body>
+</html>

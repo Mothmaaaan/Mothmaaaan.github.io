@@ -2,159 +2,71 @@
 <html>
 <head>
 <meta charset="utf-8">
-	<link rel="stylesheet" href="ProjectLayout.css"/>
-	<link rel="stylesheet" href="prism.css"/>
-	<link rel="stylesheet" href="libs/github-dark.css"/>
-<title>Carson Moon | KiBo</title>
+<link rel="stylesheet" href="ProjectLayout.css" />
+<link rel="stylesheet" href="mainpage.css" />
+
+<title>Carson Moon | Home</title>
 </head>
 
 <body>
+	<!-- Testing Background -->
+	<img src="Images/1x/GRIMWAR/GRIMWAR_Background.png" style="width: 100%; height: 100%; z-index: -11; position: fixed;"/>
 	
-	<!-- BACKGROUND VIDEO -->
-	<img src="Images/1x/Kibo/TempBackground.png" style="width: 100%; height: 100%; z-index: -11; position: fixed;"/>
-	<video autoplay muted loop playsinline id="bg-video">
+	<!-- Background Video -->
+	<!--<video autoplay muted loop playsinline id="bg-video">
 		<source src="Videos/KiboBackground.webm">
-	</video>
+	</video>-->
 	
-	<div class="page-container">
-		<div class="left-column">
-			<!-- PROJECT DROPDOWNS -->
-			<div class="dropdown">
-				<img src="Images/1x/Kibo/Kibo_Overview.png" class="dropdown-toggle-image" alt="Click for content!"/>
-				<div class="dropdown-content">
-					<div class="content-holder-hor">
-						<p class="text-content"><em>KiBo</em> was an experimental project that a friend and I worked on right after we both finished our degrees. It was an extremely rewarding game to work on due to how challenging it ended up being. I was extremely focused on networking challenges and player conveyance throughout the three weeks we had for the project. <em>KiBo</em> was created for the <a href="https://itch.io/jam/tgcxcoreblazer" target="_blank" style="color: gold">thatgamecompany x COREBLAZER GAME JAM 2025</a>, which released the theme of generosity. After a few brainstorming sessions, the idea of <em>ending your own gameplay experience to allow future players to progress further than you</em> was what we settled on. Thus, the main concept of praying to turn into a statue was born and <em>KiBo</em> was created.</p>
-						<img class="image-content" src="Images/1x/Kibo/Kibo_Standing.png"/>
-					</div>
-					<p class="text-content">KiBo is the name of the character you play as; an alien creature with a curious disposition. Use your hands to pick up objects and maneuver around the map. Explore the temple and progress further inside to uncover why KiBo wants to make its way through. How do you get past these gates? What do those statues mean? Play to find out!</p>
-				</div>
-			</div>
-			<div class="dropdown">
-				<img src="Images/1x/Kibo/Kibo_Networking.png" class="dropdown-toggle-image" alt="Click for content!"/>
-				<div class="dropdown-content">
-					<p class="text-content">At the end of the game, you have the option of praying to leave your statue in the world. This lights a torch in the final room and when all the torches are lit, the portal to Nirvana opens!</p>
-					<p class="text-content">Creating KiBo meant creating a multiplayer experience in a very short amount of time (approximately three weeks). Now, I am no stranger to multiplayer, having created many small projects in the past. However, creating something this fast was new to me. I also needed to experiment with a new server architecture, as peer-to-peer would not let all the players affect one grand total of statues. My solution was (admittedly rushed due to lack of experience) to run a server off my laptop and allow all players to connect directly to it during the duration of the jam.</p>
-					<div class="content-holder-hor">
-						<p class="text-content">I created a DirectConnectionManager which had enough versatility to allow me to toggle if a build of KiBo should be a server or client build. This script was also engineered in mind to allow for the  server to shut down and move to a different machine. Player’s statue positions are saved to the server machine and reloaded when the server starts up. I also wanted to have versatility if too many players were playing the game too fast; this led to the creation of a script that initialized the torches (number of players needed) over the network when the server first starts up. This way, I can shut the server down, move the statue save over to a new machine if necessary, and relaunch the server in the exact same state it was in before it shut down!</p>
-						<video class="video-content" autoplay muted loop playsinline>
-							<source src="Videos/Kibo_Friend.mp4">
-						</video>
-					</div>
-				</div>
-			</div>
-			<div class="dropdown">
-				<!-- DROPDOWN IMAGE and TEXT -->
-				<img src="Images/1x/Kibo/Kibo_IK.png" class="dropdown-toggle-image" alt="Click for content!"/>
-				
-				<div class="dropdown-content">
-					<p class="text-content">There were a few challenges during our three-week sprint. Inverse Kinematics was something I had very little experience with, and it took a lot of trial and error to have the hands move in a way that I felt was appropriate for a creature like KiBo. I ended up with a GrabManager script which informed Hand scripts on where to smoothly translate the IK target to.</p>
-					<div class="content-holder-hor">
-						<p class="text-content">Just one day before the game was due for submission, we ran a playtest with only two players… and the server crashed in under three minutes. I was distraught. Getting to work immediately, I found the issue to be how large the packets were that each client was sending to the server. I found the issue (which ended up being completely, 100% my fault) and was able to write a new script that compiled the IK target information and send that over the network. This was necessary as before I had attached a NetworkTransform component to every bone that IKs were affecting; over 30 bones per player updating every frame (oops!).</p>
-						<video class="video-content" autoplay muted loop playsinline>
-							<source src="Videos/Kibo_IK.mp4">
-						</video>
-					</div>
-					<div class="code-row">
-						<div class="code-content">
-							<p class="text-content">Sending IK Targets</p>
-							<pre><code>
-// Create an ikdata array the same length as our targets array.
-IKTargetData[] ikData = new IKTargetData[ikTargetsToSend.Length];
-
-// Loop through our ik target data and grab all of their transform data.
-for (int i = 0; i %lt; ikData.Length; i++)
-{
-	// The first one should be the head ik.
-	if (i == 0)
-	{
-		ikData[i] = new IKTargetData(ikTargetsToSend[i].position, ikTargetsToSend[i].rotation, headConstraint.weight);
-	}
-	else
-	{
-		ikData[i] = new IKTargetData(ikTargetsToSend[i].position, ikTargetsToSend[i].rotation, ikConstraints[i - 1].weight);
-	}
-}
-
-UpdateIKTargetsRPC(ikData);
-					</code></pre>
-						</div>
-						<div class="code-content">
-							<p class="text-content">Receiving IK Targets</p>
-							<pre><code>
-[Rpc(SendTo.ClientsAndHost)]
-private void UpdateIKTargetsRPC(IKTargetData[] ikData)
-{
-	// We should ignore our own updates.
-	if (IsOwner)
-		return;
-
-	// Loop through our targets and set their positions.
-	for (int i = 0; i &lt; ikData.Length; i++)
-	{
-		ikTargetsToSend[i].position = ikData[i].Position;
-		ikTargetsToSend[i].rotation = ikData[i].Rotation;
-
-		smoothedTargets[i].m_TargetPosition = ikData[i].Position;
-		smoothedTargets[i].m_TargetRotation = ikData[i].Rotation;
-
-		// The first one should be the head ik.
-		if (i == 0)
-		{
-			headConstraint.weight = ikData[i].Weight;
-		}
-		else
-		{
-			ikConstraints[i - 1].weight = ikData[i].Weight;
-		}
-	}
-}
-					</code></pre>
-						</div>
-						
-					</div>
-					
-					
-				</div>
-			</div>
-			<div class="dropdown">
-				<img src="Images/1x/Kibo/Kibo_PostMortem.png" class="dropdown-toggle-image" alt="Click for content!"/>
-				<div class="dropdown-content">
-					<p class="text-content">KiBo has grown to become my favorite project I have worked on. There were so many different elements that took a lot of trial and error, and I learned more in those three weeks than I did over the course of some entire projects. As demanding as it was, I will work twice as hard for the next game jam I participate in. I hope to carry some of the procedural animation tactics I learned into my future projects, bringing even more life into whatever experience I am creating.</p>
-					<img class="image-content" src="Images/1x/Kibo/Kibo_Stars.png"/>
-				</div>
+	<!--<div class="responsive-text" style="top: 5%; left: 2%; font-size: clamp(1rem, 5vw, 10rem);">
+		Carson Moon
+	</div>
+	<div class="responsive-text" style="top: 15%; left: 4%; font-size: clamp(0.5rem, 2vw, 5rem);">
+		Gameplay Programmer
+	</div>-->
+	
+	<!-- HEADER -->
+		<div class="header-banner">
+			<div class="header-left">
+				<img src="Images/1x/TitleText.png" class="header-image"/>
+			</div>		
+			
+			<div class="header-right">
+				<img src="Images/1x/TestImage.png" class="header-image"/>
+				<img src="Images/1x/TestImage.png" class="header-image"/>
+				<img src="Images/1x/TestImage.png" class="header-image"/>
 			</div>
 		</div>
-
-		<!-- STICKY WINDOW -->
-		<div class="right-column">
-			<div class="sticky-box">
-				<h2><em>KiBo</em></h2>
-				<p>Polariis</p>
-				<p>Co-Producer and Programmer</p>
-				<p>May 2025 - June 2025</p>
-				<p>Skills: <a style="color: black;">Unity Networking, Server-client Architecture,<br>Inverse Kinematics, C#</a></p>
-				<p><a target="_blank" href="https://carson-moon.itch.io/kibo" style="color: gold;">Download on Itch.io here!</a></p>
-				<!--<img src="Images/1x/Kibo/KiboLooking.png"/>-->
-				<video autoplay muted loop playsinline>
-					<source src="Videos/Kibo_Trailer.webm">
-				</video>
-			</div>
-	  	</div>
-		
-	</div>
-
-	<!-- DROPDOWN LOGIC -->
-	<script>
-		document.querySelectorAll('.dropdown-toggle-image').forEach(button =>{
-			button.addEventListener('click', ()=>{
-				const content = button.nextElementSibling;
-				content.classList.toggle('open');
-			});
-		});
-	</script>
 	
-	<script src="libs/highlight.min.js"></script>
-	<script>hljs.highlightAll();</script>
-	<!--<script src="prism.js"></script>-->
+	
+	<div class="page-container">
+		
+		
+		
+		<div class="left-column" style="margin-top: 10rem;">
+			<!-- Banners -->
+			<a href="GRIMWARPage.html"><img src="Images/1x/GrimwarBanner.png" class="dropdown-toggle-image"/></a>
+			<a href="KiboPage.html"><img src="Images/1x/Kibo/FixedKiboBanner.png" class="dropdown-toggle-image"/></a>
+			<a href="WellheroPage.html"><img src="Images/1x/WellheroBanner.png" class="dropdown-toggle-image"/></a>
+			<a href="LinnFallsPage.html"><img src="Images/1x/LinnFallsBanner.png" class="dropdown-toggle-image"/></a>
+			<a href="GoblinPage.html"><img src="Images/1x/GoblinBanner.png" class="dropdown-toggle-image"/></a>
+			<!--<img src="Images/1x/MiscBanner.png" class="dropdown-toggle-image"/>-->
+		</div>
+		
+
+		<div class="right-column">
+				<div class="sticky-box">
+					<h2><em>Hey!</em></h2>
+					<p>I'm Carson Moon and I have been programming, designing, and creating art for games since 2018! These are my best projects to date; if I were to create a page for all of my prototypes I wouldn't be done creating this website for another three years.</p>
+					<p>GRIMWAR is my most recent release, and my first release on Steam! Check out the game on Steam <a target="_blank" href="https://store.steampowered.com/app/3649130/GRIMWAR/" style="color: gold;">here</a> and the trailer below.</p>
+					<p>Take care!</p>					
+					<video autoplay muted loop playsinline>
+						<source src="Videos/GRIMWAR_30SecondTrailer.mp4">
+					</video>
+					<p><em>Last updated on: June 20, 2025</em></p>
+				</div>
+			</div>
+	</div>
+	
+	
 </body>
 </html>
