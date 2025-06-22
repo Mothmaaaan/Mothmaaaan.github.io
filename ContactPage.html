@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<link rel="stylesheet" href="ProjectLayout.css"/>
+	<link rel="stylesheet" href="prism.css"/>
+	<link rel="stylesheet" href="libs/github-dark.css"/>
+<title>Carson Moon | Contact</title>
+</head>
+
+<body>
+	
+	<!-- BACKGROUND VIDEO -->
+	<img src="Images/1x/GRIMWAR/GRIMWAR_Background.png" style="margin: 0; padding: 0; width: 100%; height: 100%; z-index: -11; position: fixed;"/>
+	<!--<video autoplay muted loop playsinline id="bg-video">
+		<source src="Videos/KiboBackground.webm">
+	</video>-->
+	
+	<!-- HEADER -->
+		<div class="header-banner" id="myHeader">
+			<div class="header-left">
+				<img src="Images/1x/TitleText.png" class="header-image"/>
+			</div>		
+			
+			<div class="header-right">
+				<!-- HAMBURGER MENU -->
+				<a href="index.html"><img src="Images/1x/Home.png" class="header-image"/></a>
+				<a href="ResumePage.html"><img src="Images/1x/Resume.png" class="header-image"/></a>
+				<a href="ContactPage.html"><img src="Images/1x/Contact.png" class="header-image"/></a>
+			</div>
+			
+		</div>
+	
+	<!-- TEXT BUTTONS -->
+		<div class="header-center">
+			<a href="index.html"><img src="Images/1x/Home.png" class="sub-header-images" style="justify-content: center; height: 100%;"></a>
+			<a href="ResumePage.html"><img src="Images/1x/Resume.png" class="sub-header-images" style="justify-content: center; height: 100%;"></a>
+			<a href="ContactPage.html"><img src="Images/1x/Contact.png" class="sub-header-images" style="justify-content: center; height: 100%;"></a>
+		</div>
+	
+	<div class="page-container">
+		<div class="left-column">
+			<!-- PROJECT DROPDOWNS -->
+			<a target="_blank" href="https://www.linkedin.com/in/carson-moon-931760238/" style="color: gold"><h1 style="color: gold;">LinkedIn</h1></a>
+				<p class="text-content">Learn more about my work.</p>
+			<a target="_blank" href="https://www.youtube.com/@carsonmoon5417" style="color: gold"><h1 style="color: gold;">YouTube</h1></a>
+				<p class="text-content">I use YouTube to post in-progress videos of my work.</p>
+			<h1>Email</h1>
+				<img src="Images/1x/Email.png" class="image-content" style="max-width: 20rem;">
+				<p class="text-content">Send me an email about my work, inquiries, or anything you want.</p>
+			<h1>Phone</h1>
+				<img src="Images/1x/Phone.png" class="image-content" style="max-width: 20rem;">
+				<p class="text-content">Call me, maybe!</p>
+		</div>
+
+		<!-- STICKY WINDOW -->
+		<div class="right-column">
+			<div class="sticky-box">
+				<h2>Contact</h2>
+				<p>Feel free to send me a message on any platform about anything.</p>
+				<!--<img src="Images/1x/Kibo/KiboLooking.png"/>-->
+			</div>
+	  	</div>
+		
+	</div>
+
+	<!-- DROPDOWN LOGIC -->
+	<script>
+		document.querySelectorAll('.dropdown-toggle-image').forEach(button =>{
+			button.addEventListener('click', ()=>{
+				const content = button.nextElementSibling;
+				content.classList.toggle('open');
+			});
+		});
+	</script>
+	
+	<script src="libs/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<!--<script src="prism.js"></script>-->
+</body>
+</html>

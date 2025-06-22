@@ -25,24 +25,32 @@
 	</div>-->
 	
 	<!-- HEADER -->
-		<div class="header-banner">
+		<div class="header-banner" id="myHeader">
 			<div class="header-left">
 				<img src="Images/1x/TitleText.png" class="header-image"/>
 			</div>		
 			
 			<div class="header-right">
-				<img src="Images/1x/TestImage.png" class="header-image"/>
-				<img src="Images/1x/TestImage.png" class="header-image"/>
-				<img src="Images/1x/TestImage.png" class="header-image"/>
+				<!-- HAMBURGER MENU -->
+				<a href="index.html"><img src="Images/1x/Home.png" class="header-image"/></a>
+				<a href="ResumePage.html"><img src="Images/1x/Resume.png" class="header-image"/></a>
+				<a href="ContactPage.html"><img src="Images/1x/Contact.png" class="header-image"/></a>
 			</div>
+			
 		</div>
 	
+	<!-- TEXT BUTTONS -->
+		<div class="header-center">
+			<a href="index.html"><img src="Images/1x/Home.png" class="sub-header-images" style="justify-content: center; height: 100%;"></a>
+			<a href="ResumePage.html"><img src="Images/1x/Resume.png" class="sub-header-images" style="justify-content: center; height: 100%;"></a>
+			<a href="ContactPage.html"><img src="Images/1x/Contact.png" class="sub-header-images" style="justify-content: center; height: 100%;"></a>
+		</div>
 	
 	<div class="page-container">
 		
 		
 		
-		<div class="left-column" style="margin-top: 10rem;">
+		<div class="left-column">
 			<!-- Banners -->
 			<a href="GRIMWARPage.html"><img src="Images/1x/GrimwarBanner.png" class="dropdown-toggle-image"/></a>
 			<a href="KiboPage.html"><img src="Images/1x/Kibo/FixedKiboBanner.png" class="dropdown-toggle-image"/></a>
@@ -56,7 +64,7 @@
 		<div class="right-column">
 				<div class="sticky-box">
 					<h2><em>Hey!</em></h2>
-					<p>I'm Carson Moon and I have been programming, designing, and creating art for games since 2018! These are my best projects to date; if I were to create a page for all of my prototypes I wouldn't be done creating this website for another three years.</p>
+					<p>I'm Carson Moon and I have been programming, designing, and creating art for games since 2018! These are my best projects to date; if I were to make a page for all of my prototypes I wouldn't be done creating this website for another three years.</p>
 					<p>GRIMWAR is my most recent release, and my first release on Steam! Check out the game on Steam <a target="_blank" href="https://store.steampowered.com/app/3649130/GRIMWAR/" style="color: gold;">here</a> and the trailer below.</p>
 					<p>Take care!</p>					
 					<video autoplay muted loop playsinline>
@@ -67,6 +75,13 @@
 			</div>
 	</div>
 	
-	
+	<script>
+		document.querySelectorAll('.header-dropdown').forEach(button =>{
+			button.addEventListener('click', ()=>{
+				const content = button.nextElementSibling;
+				content.classList.toggle('open');
+			});
+		});
+	</script>
 </body>
 </html>
