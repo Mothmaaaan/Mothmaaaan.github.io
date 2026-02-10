@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<link rel="stylesheet" href="background.css"/>
+<link rel="stylesheet" href="buttons.css"/>
+<link rel="stylesheet" href="projectDisplay.css"/>
+<link rel="stylesheet" href="carousel.css"/>
+<link rel="stylesheet" href="imageButton.css"/>
+<link rel="stylesheet" href="fonts.css"/>
+<link rel="stylesheet" href="projectPage.css"/>
+<link rel="stylesheet" href="header.css"/>
+<title>Carson Moon | Linn Falls</title>
+</head>
+
+<body>
+	<!-- HEADER -->
+	<div class="header-container">
+		
+		<div class="header-top" style="padding-top: 1rem;">
+		
+			<div class="header-left">
+				<a href="index.html" class="image-button" style="width: 18rem; aspect-ratio: 1145 / 262;">
+					<img src="1x/Home_Button.png" alt="">
+				</a>
+			</div>
+			
+			<button class="hamburger-menu">
+				<img src="1x/Hamburger_Button.png" alt="" style="width: 3rem;">
+			</button>
+			
+			<nav class="header-nav">
+				<a href="resume.html" class="image-button" style="width: 8rem; aspect-ratio: 345 / 175;">
+					<img src="1x/Resume_Button.png" alt="">
+				</a>
+				<a href="contact.html" class="image-button" style="width: 8rem; aspect-ratio: 345 / 175;">
+					<img src="1x/Contact_Button.png" alt="">
+				</a>
+			</nav>
+		
+		</div>
+		
+		<img class="stripe-screen-width" src="1x/Measured_Stripe.png"/>
+		
+	</div>
+	<!-- END HEADER -->
+	
+	<!-- Introduction Section -->
+	<section class="project-section video-background">
+		<video
+			class="video-background-content" autoplay muted loop playsinline>
+			<source src="videos/LinnFalls_Trailer.webm">
+		</video>
+	
+		<img class="project-logo" src="1x/Linn_Falls_Title.png">
+		<p class="project-subtitle times-new-roman">Casual puzzle game with relaxing vibes.</p>
+		<a href="https://dmercado-knights.itch.io/linn-falls" target="_blank" class="image-button">
+			<img src="1x/Button_Default.png" alt="">
+			<span class="button-text bauhaus">Download on Itch</span>
+		</a>
+	
+	</section>
+	
+	<!-- ABOUT SECTION -->
+	<section class="horizontal-section">
+	<div class="horizontal-layout">
+		<div class="horizontal-group">
+			<!-- Left column content -->
+			<h1 class="title-left-max-padding cooper-black">About</h1>
+			<p class="subtitle-left-minimum-padding">Team Azure (9 people)</p>
+			<p class="subtitle-left-minimum-padding">August 2023 - December 2023</p>
+			<p class="subtitle-left-minimum-padding">Producer and Programmer</p>
+			<p class="subtitle-left-minimum-padding">Unity</p>
+			<p class="paragraph-left">Linn Falls was the first project that I produced and I was also the only programmer on the team. I dealt with all core aspects of the game including the puzzle mechanics, puzzle designs,
+										UI interactions, camera interactions, and most importantly, the procedural water system.</p>
+		</div>
+
+		<div class="horizontal-group">
+			<!-- Right column content -->
+			<video class="video" autoplay muted loop playsinline>
+					<source src="videos/LinnFalls_TutorialVid.mp4">
+				</video>
+				<p class="subtitle-video"><i>Showcase of all mechanics.</i></p>
+	</div>
+</section>
+	
+	<!-- Contributions Pt. 1 -->
+	<img class="horizontal-stripe" src="1x/Measured_Stripe.png">
+	
+	<section class="horizontal-section">
+		<div class="horizontal-layout">
+		
+			<!-- Video with caption -->
+			<div class="horizontal-group">
+				<video class="video" autoplay muted loop playsinline>
+					<source src="videos/LinnFalls_WaterVid.mp4">
+				</video>
+				<p class="subtitle-video"><i>Showcase of in-game water system.</i></p>
+				
+			</div>
+		
+			<!-- Contribution text -->
+			<div class="horizontal-group">
+			
+				<h1 class="title-left cooper-black">Contributions</h1>
+	
+				<h2 class="subtitle-left cooper-black">The Water</h2>
+				<ul class="paragraph-left" style="padding: 20px 0px 15px 60px;">
+					<li>Developed a procedural water flow system that allows for dynamic updates. This sytem went though numerous reworks throughout development because I kept discovering better ways to handle it.
+							I ended up with a system that queues water blocks for updates, destruction, or pollution and runs those blocks at specific tick intervals. Using hashsets where I could to deal with existing water blocks helped with performance a ton.
+							I enjoyed working with this system enough to go back and create a much smoother system about a year and a half after the project ended.</li>
+					<li>Created the water shader.</li>
+				</ul>
+			
+			</div>
+		
+		</div>
+	</section>
+	
+	<!-- Contributions Pt. 2 -->
+	<section class="horizontal-section">
+		<div class="horizontal-layout">
+		
+			<!-- Video with caption -->
+			<div class="horizontal-group">
+				<video class="video" autoplay muted loop playsinline>
+					<source src="videos/LinnFalls_NighttimeVid.mp4">
+				</video>
+				<p class="subtitle-video"><i>Showcase of Nighttime mode.</i></p>
+			</div>
+		
+			<div class="horizontal-group">
+
+				<h2 class="subtitle-left cooper-black">Systems</h2>
+				<ul class="paragraph-left" style="padding: 20px 0px 15px 60px;">
+					<li>Developed, integrated, and tested 4 unique mechanics. (Rock, Lever, Slide, and Pipes)</li>
+					<li>Created a smooth camera that allowed for horizontal rotation.</li>
+					<li>Implemented all UI interaction.</li>
+					<li>Pitched and then created Night and Endless modes.</li>
+					<li>Assisted level designers with puzzle design and creation.</li>
+					<li>Implemented all sounds.</li>
+				</ul>
+				
+				<h2 class="subtitle-left cooper-black">Project Management</h2>
+				<ul class="paragraph-left" style="padding: 20px 0px 15px 60px;">
+					<li>Managed the Github repository and dealt with any issues that arose.</li>
+					<li>Organized sprints and delegated appropriate tasks to the team each week.</li>
+					<li>In charge of bi-weekly presentations outlining any new features and plans.</li>
+					<li>Responsible for publishing Linn Falls to the Google Play Store.</li>
+				</ul>
+
+			</div>
+		
+		</div>
+	</section>
+	
+	<img class="horizontal-stripe" src="1x/Measured_Stripe.png">
+	
+	<section class="horizontal-section">
+	<div class="horizontal-layout">
+		
+		<div class="horizontal-group">
+			<!-- Left column content -->
+			<h1 class="title-left-max-padding cooper-black">What I Learned</h1>
+			<p class="paragraph-left">Linn Falls will always hold a very special place in my heart because it was the first project that I was in charge of. I'm sure the team would agree that there were rough patches
+										in how I navigated ClickUp and meetings, but we all have to start somewhere. Importantly, I learned how to listen and absorb each member's ideas and wants for the project. We ran into
+										a few technical issues (mainly with the water shader and water flow algorithm), but through determination (and late nights) we were able to find solutions as a team and push forward.</p>
+			
+		</div>
+		
+		
+		<div class="horizontal-group">
+			<!-- Right column content -->
+			<img class="image" src="1x/LinnFalls_ThankYou.png">
+		</div>
+
+		
+	</div>
+</section>
+	
+	
+<script src="carousel.js"></script>
+<script src="hamburgermenu.js"></script>
+</body>
+</html>

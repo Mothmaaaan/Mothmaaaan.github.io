@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+
+.text-button{
+	color: black;
+}
+
+.text-button:hover{
+	color: white;
+}

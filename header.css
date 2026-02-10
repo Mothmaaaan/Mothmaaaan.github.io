@@ -1,0 +1,90 @@
+@charset "utf-8";
+/* CSS Document */
+
+.header-container{
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	
+	width: 100%;
+	
+	margin: 0;
+	
+	
+	flex-direction: column;
+	
+	background-color: rgb(225, 222, 202);
+}
+
+.header-top{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px 40px;
+}
+
+.header-left{
+	display: flex;
+	flex-direction: column;
+}
+
+.header-right{
+	align-content: flex-end;
+	gap: 60px;
+}
+
+.header-nav{
+	display: flex;
+	gap: 1.5rem;
+}
+
+.hamburger-menu{
+	display: none;
+	font-size: 2rem;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+@media (max-width: 900px){
+	/* Hide buttons */
+	.header-nav{
+		position: absolute;
+		top: 100%;
+		right: 0;
+		
+		flex-direction: column;
+		background: rgb(225, 222, 202);
+		padding: 1rem;
+		gap: 1rem;
+		
+		display: none;
+	}
+	
+	/* Show Hamburger Menu */
+	.hamburger-menu{
+		display: block;
+	}
+	
+	.header-nav.open{
+		display: flex;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

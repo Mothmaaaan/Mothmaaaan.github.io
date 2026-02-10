@@ -1,87 +1,404 @@
 <!doctype html>
 <html>
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
 <meta charset="utf-8">
-<link rel="stylesheet" href="ProjectLayout.css" />
-<link rel="stylesheet" href="mainpage.css" />
-
+<link rel="stylesheet" href="background.css"/>
+<link rel="stylesheet" href="buttons.css"/>
+<link rel="stylesheet" href="projectDisplay.css"/>
+<link rel="stylesheet" href="carousel.css"/>
+<link rel="stylesheet" href="imageButton.css"/>
+<link rel="stylesheet" href="fonts.css"/>
+<link rel="stylesheet" href="projectPage.css"/>
+<link rel="stylesheet" href="header.css"/>
 <title>Carson Moon | Home</title>
 </head>
 
 <body>
-	<!-- Testing Background -->
-	<img src="Images/1x/GRIMWAR/GRIMWAR_Background.png" style="width: 100%; height: 100%; z-index: -11; position: fixed;"/>
-	
-	<!-- Background Video -->
-	<!--<video autoplay muted loop playsinline id="bg-video">
-		<source src="Videos/KiboBackground.webm">
-	</video>-->
-	
-	<!--<div class="responsive-text" style="top: 5%; left: 2%; font-size: clamp(1rem, 5vw, 10rem);">
-		Carson Moon
-	</div>
-	<div class="responsive-text" style="top: 15%; left: 4%; font-size: clamp(0.5rem, 2vw, 5rem);">
-		Gameplay Programmer
-	</div>-->
-	
 	<!-- HEADER -->
-		<div class="header-banner" id="myHeader">
+	<div class="header-container">
+		
+		<div class="header-top" style="padding-top: 1rem;">
+		
 			<div class="header-left">
-				<img src="Images/1x/TitleText.png" class="header-image"/>
-			</div>		
-			
-			<div class="header-right">
-				<!-- HAMBURGER MENU -->
-				<a href="index.html"><img src="Images/1x/Home.png" class="header-image"/></a>
-				<a href="ResumePage.html"><img src="Images/1x/Resume.png" class="header-image"/></a>
-				<a href="ContactPage.html"><img src="Images/1x/Contact.png" class="header-image"/></a>
+				<a href="index.html" class="image-button" style="width: 18rem; aspect-ratio: 1145 / 262;">
+					<img src="1x/Home_Button.png" alt="">
+				</a>
 			</div>
 			
+			<button class="hamburger-menu">
+				<img src="1x/Hamburger_Button.png" alt="" style="width: 3rem;">
+			</button>
+			
+			<nav class="header-nav">
+				<a href="resume.html" class="image-button" style="width: 8rem; aspect-ratio: 345 / 175;">
+					<img src="1x/Resume_Button.png" alt="">
+				</a>
+				<a href="contact.html" class="image-button" style="width: 8rem; aspect-ratio: 345 / 175;">
+					<img src="1x/Contact_Button.png" alt="">
+				</a>
+			</nav>
+		
 		</div>
+		
+		<img class="stripe-screen-width" src="1x/Measured_Stripe.png"/>
+		
+	</div>
+	<!-- END HEADER -->
 	
-	<!-- TEXT BUTTONS -->
-		<div class="header-center">
-			<a href="index.html"><img src="Images/1x/Home.png" class="sub-header-images" style="justify-content: center; height: 100%;"></a>
-			<a href="ResumePage.html"><img src="Images/1x/Resume.png" class="sub-header-images" style="justify-content: center; height: 100%;"></a>
-			<a href="ContactPage.html"><img src="Images/1x/Contact.png" class="sub-header-images" style="justify-content: center; height: 100%;"></a>
-		</div>
-	
-	<div class="page-container">
-		
-		
-		
-		<div class="left-column">
-			<!-- Banners -->
-			<a href="GRIMWARPage.html"><img src="Images/1x/GrimwarBanner.png" class="dropdown-toggle-image"/></a>
-			<a href="KiboPage.html"><img src="Images/1x/Kibo/FixedKiboBanner.png" class="dropdown-toggle-image"/></a>
-			<a href="WellheroPage.html"><img src="Images/1x/WellheroBanner.png" class="dropdown-toggle-image"/></a>
-			<a href="LinnFallsPage.html"><img src="Images/1x/LinnFallsBanner.png" class="dropdown-toggle-image"/></a>
-			<a href="GoblinPage.html"><img src="Images/1x/GoblinBanner.png" class="dropdown-toggle-image"/></a>
-			<!--<img src="Images/1x/MiscBanner.png" class="dropdown-toggle-image"/>-->
-		</div>
-		
-
-		<div class="right-column">
-				<div class="sticky-box">
-					<h2><em>Hey!</em></h2>
-					<p>I'm Carson Moon and I have been programming, designing, and creating art for games since 2018! These are my best projects to date; if I were to make a page for all of my prototypes I wouldn't be done creating this website for another three years.</p>
-					<p>GRIMWAR is my most recent release, and my first release on Steam! Check out the game on Steam <a target="_blank" href="https://store.steampowered.com/app/3649130/GRIMWAR/" style="color: gold;">here</a> and the trailer below.</p>
-					<p>Take care!</p>					
-					<video autoplay muted loop playsinline>
-						<source src="Videos/GRIMWAR_30SecondTrailer.mp4">
-					</video>
-					<p><em>Last updated on: June 20, 2025</em></p>
-				</div>
-			</div>
+	<!-- Introduction -->
+	<div class="container-centered">
+		<h1 class="title-left bauhaus" style="font-size: 6rem;">Hello,</h1>
+		<h2 class="subtitle-left">My name is Carson and I have been programming for games for over 8 years now.</h2>
+		<h2 class="subtitle-left">In my free time, I love to recreate mechanics from games I love in Unity.</h2>
+		<h2 class="subtitle-left">I am familiar with many areas such as:</h2>
+		<ul class="paragraph-left" style="padding: 20px 0px 15px 60px;">
+			<li>Multiplayer netcode (most experience with Unity Netcode for GameObjects)</li>
+			<li>Object-oriented programming patterns</li>
+			<li>3D and 2D development</li>
+			<li>VR development</li>
+			<li>Mobile development</li>
+			<li>Unity UI design and integration</li>
+			<li>Project management with ClickUp, Jira, and Trello</li>
+			<li>Management of a live-service game</li>
+		</ul>
+		<h2 class="subtitle-left" style="padding-bottom: 80px;">Thank you for taking the time to check out my work.</h2>
 	</div>
 	
-	<script>
-		document.querySelectorAll('.header-dropdown').forEach(button =>{
-			button.addEventListener('click', ()=>{
-				const content = button.nextElementSibling;
-				content.classList.toggle('open');
-			});
-		});
-	</script>
+	<!-- Write Warz -->
+	<section class="project-section">
+	
+		<h2 class="project-title cooper-black">Write Warz</h2>
+		<h2 class="project-subtitle times-new-roman">July 2025 - Present</h2>
+		
+		<div class="project-container">
+		
+			<div class="project-left">
+			
+				<video class="video" autoplay muted loop playsinline>
+					<source src="videos/Write_Warz_Trailer.mp4">
+				</video>
+			
+			</div>
+			
+			<div class="project-right">
+				<p class="project-description times-new-roman">Multiplayer party game focused on creative writing and typing minigames. Currently in early access on Steam.</p>
+				
+				<img class="project-stripe" src="1x/Small_Stripe.png">
+				
+				<div class="project-meta cooper-black">
+					<div class="meta-row">
+						<span class="meta-label">Company:</span>
+						<span class="meta-value times-new-roman">Boltz Entertainment</span>
+					</div>
+					<div class="meta-row">
+						<span class="meta-label">Role:</span>
+						<span class="meta-value times-new-roman">Senior Programmer</span>
+					</div>
+					<div class="meta-row">
+						<span class="meta-label">Release:</span>
+						<span class="meta-value times-new-roman">Early Access since April 2025</span>
+					</div>
+					<div class="meta-row">
+						<span class="meta-label">Contributions:</span>
+						<span class="meta-value times-new-roman">Implementing new gameplay mechanics, overhauling old backend/frontend systems, and designing the user interface</span>
+					</div>
+				</div>
+				
+				<a href="writewarz.html" class="image-button">
+					<img src="1x/Button_Default.png" alt="">
+					<span class="button-text bauhaus">More Details</span>
+				</a>
+			
+			</div>
+		
+		</div>
+	
+	</section>
+	
+	<!-- Projects -->
+	<section class="project-section projects-background">
+	
+		<h2 class="project-title cooper-black">Projects</h2>
+		<h2 class="project-subtitle times-new-roman">November 7th - 9th, 2025</h2>
+		
+		<div class="project-container">
+		
+			<div class="project-left">
+			
+				<video class="video" autoplay muted loop playsinline>
+					<source src="videos/Projects_Overview_Trailer.mp4">
+				</video>
+			
+			</div>
+			
+			<div class="project-right">
+				<p class="project-description times-new-roman"><b>Second place winner of the "Most Creative Use of Anniversary Assets" category in the Unity 20th Anniversary Game Jam.</b></p>
+				
+				<img class="project-stripe" src="1x/Small_Stripe.png">
+				
+				<div class="project-meta cooper-black">
+					<div class="meta-row">
+						<span class="meta-label">Who:</span>
+						<span class="meta-value times-new-roman">Carson Moon</span>
+					</div>
+					<div class="meta-row">
+						<span class="meta-label">When:</span>
+						<span class="meta-value times-new-roman">November 9th, 2025</span>
+					</div>
+					<div class="meta-row">
+						<span class="meta-label">What:</span>
+						<span class="meta-value times-new-roman">Creation of three different levels each with a different perspective.</span>
+					</div>
+				</div>
+				
+				<a href="projects.html" class="image-button">
+					<img src="1x/Button_Default.png" alt="">
+					<span class="button-text bauhaus">More Details</span>
+				</a>
+			
+			</div>
+		
+		</div>
+	
+	</section>
+	
+	<!-- Kibo -->
+	<section class="project-section kibo-background">
+	
+		<h2 class="project-title cooper-black">KiBo</h2>
+		<h2 class="project-subtitle times-new-roman">May 2025 - June 2025</h2>
+		
+		<div class="project-container">
+		
+			<div class="project-left">
+			
+				<video class="video" autoplay muted loop playsinline>
+					<source src="videos/Kibo_Trailer.webm">
+				</video>
+			
+			</div>
+			
+			<div class="project-right">
+				<p class="project-description times-new-roman">Multiplayer experience designed to force players to make a sacrificial decision to help future players. Created the the thatgamecompany x COREBLAZER GAME JAM 2025.</p>
+				
+				<img class="project-stripe" src="1x/Small_Stripe.png">
+				
+				<div class="project-meta cooper-black">
+					<div class="meta-row">
+						<span class="meta-label">Who:</span>
+						<span class="meta-value times-new-roman">Polariis</span>
+					</div>
+					<div class="meta-row">
+						<span class="meta-label">Role:</span>
+						<span class="meta-value times-new-roman">Co-Producer and Programmer</span>
+					</div>
+					<div class="meta-row">
+						<span class="meta-label">Release:</span>
+						<span class="meta-value times-new-roman">June 2025</span>
+					</div>
+					<div class="meta-row">
+						<span class="meta-label">What:</span>
+						<span class="meta-value times-new-roman">In charge of all programming and some VFX as well. Networking and procedural animation are the highlights.</span>
+					</div>
+				</div>
+				
+				<a href="kibo.html" class="image-button">
+					<img src="1x/Button_Default.png" alt="">
+					<span class="button-text bauhaus">More Details</span>
+				</a>
+			
+			</div>
+		
+		</div>
+	
+	</section>
+	
+	<!-- GRIMWAR -->
+	<section class="project-section grimwar-background">
+	
+		<h2 class="project-title cooper-black">GRIMWAR</h2>
+		<h2 class="project-subtitle times-new-roman">August 2024 - May 2025</h2>
+		
+		<div class="project-container">
+		
+			<div class="project-left">
+			
+				<video class="video" autoplay muted loop playsinline>
+					<source src="videos/GRIMWAR_30SecondTrailer.mp4">
+				</video>
+			
+			</div>
+			
+			<div class="project-right">
+				<p class="project-description times-new-roman">Fast-paced movement shooter with a focus on player expression. GRIMWAR was designed for as much player freedom as possible.</p>
+				
+				<img class="project-stripe" src="1x/Small_Stripe.png">
+				
+				<div class="project-meta cooper-black">
+					<div class="meta-row">
+						<span class="meta-label">Who:</span>
+						<span class="meta-value times-new-roman">BookWyrm</span>
+					</div>
+					<div class="meta-row">
+						<span class="meta-label">Role:</span>
+						<span class="meta-value times-new-roman">Lead Programmer</span>
+					</div>
+					<div class="meta-row">
+						<span class="meta-label">Release:</span>
+						<span class="meta-value times-new-roman">May 2025</span>
+					</div>
+					<div class="meta-row">
+						<span class="meta-label">What:</span>
+						<span class="meta-value times-new-roman">Creation and implementation of all major gameplay elements and systems. Managed programmer tasks and implementation from artists and sound designers.</span>
+					</div>
+				</div>
+				
+				<a href="grimwar.html" class="image-button">
+					<img src="1x/Button_Default.png" alt="">
+					<span class="button-text bauhaus">More Details</span>
+				</a>
+			
+			</div>
+		
+		</div>
+	
+	</section>
+	
+	<!-- Wellness Hero -->
+	<section class="project-section wellness-hero-background">
+	
+		<h2 class="project-title cooper-black">Wellness Hero</h2>
+		<h2 class="project-subtitle times-new-roman">January 2024 - August 2025 (Unreleased)</h2>
+		
+		<div class="project-container">
+		
+			<div class="project-left">
+			
+				<video class="video" autoplay muted loop playsinline>
+					<source src="videos/Wellhero_TrailerVid.mp4">
+				</video>
+			
+			</div>
+			
+			<div class="project-right">
+				<p class="project-description times-new-roman">Casual mobile game with the goal of gamifying the importance in managing your mental health.</p>
+				
+				<img class="project-stripe" src="1x/Small_Stripe.png">
+				
+				<div class="project-meta cooper-black">
+					<div class="meta-row">
+						<span class="meta-label">Who:</span>
+						<span class="meta-value times-new-roman">Ensemble Interactive</span>
+					</div>
+					<div class="meta-row">
+						<span class="meta-label">Role:</span>
+						<span class="meta-value times-new-roman">Lead Programmer</span>
+					</div>
+					<div class="meta-row">
+						<span class="meta-label">What:</span>
+						<span class="meta-value times-new-roman">Programmed everything seen in the game so far. UI architecture, input systems, CSV reading, gameplay balancing, and the game state machine are all major contributions.</span>
+					</div>
+				</div>
+				
+				<a href="wellnesshero.html" class="image-button">
+					<img src="1x/Button_Default.png" alt="">
+					<span class="button-text bauhaus">More Details</span>
+				</a>
+			
+			</div>
+		
+		</div>
+	
+	</section>
+	
+	<!-- Linn Falls -->
+	<section class="project-section linn-falls-background">
+	
+		<h2 class="project-title cooper-black">Linn Falls</h2>
+		<h2 class="project-subtitle times-new-roman">August 2023 - December 2023</h2>
+		
+		<div class="project-container">
+		
+			<div class="project-left">
+			
+				<video class="video" autoplay muted loop playsinline>
+					<source src="videos/LinnFalls_Trailer.webm">
+				</video>
+			
+			</div>
+			
+			<div class="project-right">
+				<p class="project-description times-new-roman">Casual mobile game where you solve puzzles to keep the water flowing.</p>
+				
+				<img class="project-stripe" src="1x/Small_Stripe.png">
+				
+				<div class="project-meta cooper-black">
+					<div class="meta-row">
+						<span class="meta-label">Who:</span>
+						<span class="meta-value times-new-roman">Team Azure</span>
+					</div>
+					<div class="meta-row">
+						<span class="meta-label">Role:</span>
+						<span class="meta-value times-new-roman">Producer and Programmer</span>
+					</div>
+					<div class="meta-row">
+						<span class="meta-label">Release:</span>
+						<span class="meta-value times-new-roman">December 2023</span>
+					</div>
+					<div class="meta-row">
+						<span class="meta-label">What:</span>
+						<span class="meta-value times-new-roman">Managed the teams tasks and responsible for all programming. Puzzle mechanics, UI systems, puzzle designing, and a save system are the highlights.</span>
+					</div>
+				</div>
+				
+				<a href="linnfalls.html" class="image-button">
+					<img src="1x/Button_Default.png" alt="">
+					<span class="button-text bauhaus">More Details</span>
+				</a>
+			
+			</div>
+		
+		</div>
+	
+	</section>
+	
+	<!-- Others -->
+	<section class="no-background-project-section">
+	
+		<h2 class="project-title cooper-black" style="color: black;">Miscellaneous Projects</h2>
+		
+		<div class="project-container">
+		
+			<div class="project-left">
+			
+				<video class="video" autoplay muted loop playsinline>
+					<source src="videos/ShoppingCart_Showcase.mp4">
+				</video>
+			
+			</div>
+			
+			<div class="project-right">
+				<p class="project-description times-new-roman" style="color: black;">These are smaller projects that don't have enough to warrant an entire page.</p>
+				
+				<img class="project-stripe" src="1x/Small_Stripe.png">
+				
+				<a href="others.html" class="image-button">
+					<img src="1x/Button_Default.png" alt="">
+					<span class="button-text bauhaus">More Details</span>
+				</a>
+			
+			</div>
+		
+		</div>
+	
+	</section>
+	
+	
+	
+<script src="carousel.js"></script>
+<script src="hamburgermenu.js"></script>
 </body>
 </html>

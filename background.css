@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin: 0;
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	box-sizing: border-box;
+}
+
+body{
+	background-color: rgb(225, 222, 202);
+}
+
+.title-text{
+	font-size: 3rem;
+	padding-left: 0.5rem;
+}
+
+.subtitle-text{
+	font-size: 1.5rem;
+	padding-left: 0.5rem;
+}
+
+.center-text-box{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.center-text-aligned{
+	text-align: center;
+}
+
+.stripe-screen-width{
+	width: 100%;
+	height: 2rem;
+	padding-top: 1rem;
+	padding-left: 0;
+	margin: 0;
+	display: block;
+}

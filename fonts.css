@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* Responsible for holding all of our fonts! */
+.cooper-black{
+	font-family: 'Cooper Black';
+	font-weight: 500;
+}
+
+.times-new-roman{
+	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+	font-weight: 500;
+}
+
+.bauhaus{
+	font-family: "Bauhaus 93";
+}

@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<link rel="stylesheet" href="background.css"/>
+<link rel="stylesheet" href="buttons.css"/>
+<link rel="stylesheet" href="projectDisplay.css"/>
+<link rel="stylesheet" href="carousel.css"/>
+<link rel="stylesheet" href="imageButton.css"/>
+<link rel="stylesheet" href="fonts.css"/>
+<link rel="stylesheet" href="projectPage.css"/>
+<link rel="stylesheet" href="header.css"/>
+<title>Carson Moon | Wellness Hero</title>
+</head>
+
+<body>
+	<!-- HEADER -->
+	<div class="header-container">
+		
+		<div class="header-top" style="padding-top: 1rem;">
+		
+			<div class="header-left">
+				<a href="index.html" class="image-button" style="width: 18rem; aspect-ratio: 1145 / 262;">
+					<img src="1x/Home_Button.png" alt="">
+				</a>
+			</div>
+			
+			<button class="hamburger-menu">
+				<img src="1x/Hamburger_Button.png" alt="" style="width: 3rem;">
+			</button>
+			
+			<nav class="header-nav">
+				<a href="resume.html" class="image-button" style="width: 8rem; aspect-ratio: 345 / 175;">
+					<img src="1x/Resume_Button.png" alt="">
+				</a>
+				<a href="contact.html" class="image-button" style="width: 8rem; aspect-ratio: 345 / 175;">
+					<img src="1x/Contact_Button.png" alt="">
+				</a>
+			</nav>
+		
+		</div>
+		
+		<img class="stripe-screen-width" src="1x/Measured_Stripe.png"/>
+		
+	</div>
+	<!-- END HEADER -->
+	
+	<!-- Introduction Section -->
+	<section class="project-section wellness-hero-background">
+<!--
+		<video
+			class="video-background-content" autoplay muted loop playsinline>
+			<source src="videos/Wellhero_IntroVid.mp4">
+		</video>
+-->
+	
+		<img class="project-logo" src="1x/Wellness_Hero_Title.png">
+		<p class="project-subtitle times-new-roman">Casual mobile game about managing your mental health.</p>
+<!--
+		<a href="https://dmercado-knights.itch.io/linn-falls" target="_blank" class="image-button">
+			<img src="1x/Button_Default.png" alt="">
+			<span class="button-text bauhaus">Download on Itch</span>
+		</a>
+-->
+	
+	</section>
+	
+	<!-- ABOUT SECTION -->
+	<section class="horizontal-section">
+	<div class="horizontal-layout">
+		<div class="horizontal-group">
+			<!-- Left column content -->
+			<h1 class="title-left-max-padding cooper-black">About</h1>
+			<p class="subtitle-left-minimum-padding">Ensemble Interactive (5 People)</p>
+			<p class="subtitle-left-minimum-padding">January 2024 - August 2025</p>
+			<p class="subtitle-left-minimum-padding">Lead Programmer</p>
+			<p class="subtitle-left-minimum-padding">Unity</p>
+			<p class="paragraph-left">Wellness Hero started as a paper prototype and evolved into an app that gamifies the management of your mental health. Although still a WIP, programming
+										Wellness Hero has been a journey through aspects of development I had previously not touched, such as Editor Debugs, CSV reading, and FTUE Analytics.</p>
+		</div>
+
+		<div class="horizontal-group">
+			<!-- Right column content -->
+			<video class="video" autoplay muted loop playsinline>
+					<source src="videos/Wellhero_IntroVid.mp4">
+				</video>
+				<p class="subtitle-video"><i>The main view.</i></p>
+	</div>
+</section>
+	
+	<!-- Contributions Pt. 1 -->
+	<img class="horizontal-stripe" src="1x/Measured_Stripe.png">
+	
+	<section class="horizontal-section">
+		<div class="horizontal-layout">
+		
+			<!-- Video with caption -->
+			<div class="horizontal-group">
+				<video class="video" autoplay muted loop playsinline>
+					<source src="videos/Wellhero_TrailerVid.mp4">
+				</video>
+				<p class="subtitle-video"><i>Various systems at work.</i></p>
+				
+			</div>
+		
+			<!-- Contribution text -->
+			<div class="horizontal-group">
+			
+				<h1 class="title-left cooper-black">Contributions</h1>
+	
+				<h2 class="subtitle-left cooper-black">Gameplay Systems</h2>
+				<ul class="paragraph-left" style="padding: 20px 0px 15px 60px;">
+					<li>Leveraged Unity's Event Trigger system to create draggable 'badges' that are used for many aspects of the game.</li>
+					<li>Created 'towers' that hold necessary information and represent different goals.</li>
+					<li>Implemented an energy system to recalculate the flow of energy whenever a new connection between towers is created or destroyed.</li>
+					<li>Implemented all UI and tower interactions.</li>
+					<li>Designed a tracker in charge of managing your daily, weekly, and lifetime progress.</li>
+				</ul>
+			
+			</div>
+		
+		</div>
+	</section>
+	
+	<!-- Contributions Pt. 2 -->
+	<section class="horizontal-section">
+		<div class="horizontal-layout">
+		
+			<!-- Video with caption -->
+			<div class="horizontal-group">
+				
+				<div class="carousel">
+					<button class="carousel-button prev">
+						<img src="1x/Carousel_Left_Arrow.png">
+					</button>
+					
+					<div class="carousel-track">
+						<div class="carousel-slide">
+							<img src="1x/Wellhero_SaveDebugs.png" alt="">
+						</div>
+						<div class="carousel-slide">
+							<img src="1x/Wellhero_Analytics.png" alt="">
+						</div>
+					</div>
+				
+					<button class="carousel-button next">
+						<img src="1x/Carousel_Right_Arrow.png">
+					</button>
+				</div>
+				
+				<p class="subtitle-video"><i>Showcase of additional contributions.</i></p>
+			</div>
+		
+			<div class="horizontal-group">
+
+				<h2 class="subtitle-left cooper-black">Backend Systems</h2>
+				<ul class="paragraph-left" style="padding: 20px 0px 15px 60px;">
+					<li>Created a script to read from a CSV and output custom Scriptable Objects. Storing information about specific events, settings, and abilities is as simple as adding it to a spreadsheet.</li>
+					<li>Created a save system that allows for easy modularity.</li>
+				</ul>
+				
+				<h2 class="subtitle-left cooper-black">Additional Contributions</h2>
+				<ul class="paragraph-left" style="padding: 20px 0px 15px 60px;">
+					<li>Implemented shaders to allow for smooth transitions between materials, used for the color/sprite-shifting background.</li>
+					<li>Setup and managed Unity Analytics to view and adjust player FTUE.</li>
+				</ul>
+
+			</div>
+		
+		</div>
+	</section>
+	
+	<img class="horizontal-stripe" src="1x/Measured_Stripe.png">
+	
+	<section class="horizontal-section">
+	<div class="horizontal-layout">
+		
+		<div class="horizontal-group">
+			<!-- Left column content -->
+			<h1 class="title-left-max-padding cooper-black">What I Learned</h1>
+			<p class="paragraph-left">Wellness Hero is a project that could have benefited from how much knowledge I have of backend systems now compared to back then. Most of my experience leading up to Wellness Hero
+										was in programming for more gameplay-oriented systems, and it took a lot of effort for me to see the value in some of the tools that we were eventually thankful for. Nowadays, I
+										have made leaps in my ability to determine if we need a tool, what that tool should do, and how someone should interact with that tool to make their life as easy as possible.</p>
+			<p class="paragraph-left">I would love to create something with the mission to impact the player positively like Wellness Hero again.</p>
+			
+		</div>
+		
+		
+		<div class="horizontal-group">
+			<!-- Right column content -->
+			<img class="image" src="1x/Wellness_Hero_Credits.png">
+		</div>
+
+		
+	</div>
+</section>
+	
+	
+<script src="carousel.js"></script>
+<script src="hamburgermenu.js"></script>
+</body>
+</html>

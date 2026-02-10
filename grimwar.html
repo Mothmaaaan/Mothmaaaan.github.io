@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<link rel="stylesheet" href="background.css"/>
+<link rel="stylesheet" href="buttons.css"/>
+<link rel="stylesheet" href="projectDisplay.css"/>
+<link rel="stylesheet" href="carousel.css"/>
+<link rel="stylesheet" href="imageButton.css"/>
+<link rel="stylesheet" href="fonts.css"/>
+<link rel="stylesheet" href="projectPage.css"/>
+<link rel="stylesheet" href="header.css"/>
+<title>Carson Moon | GRIMWAR</title>
+</head>
+
+<body>
+	<!-- HEADER -->
+	<div class="header-container">
+		
+		<div class="header-top" style="padding-top: 1rem;">
+		
+			<div class="header-left">
+				<a href="index.html" class="image-button" style="width: 18rem; aspect-ratio: 1145 / 262;">
+					<img src="1x/Home_Button.png" alt="">
+				</a>
+			</div>
+			
+			<button class="hamburger-menu">
+				<img src="1x/Hamburger_Button.png" alt="" style="width: 3rem;">
+			</button>
+			
+			<nav class="header-nav">
+				<a href="resume.html" class="image-button" style="width: 8rem; aspect-ratio: 345 / 175;">
+					<img src="1x/Resume_Button.png" alt="">
+				</a>
+				<a href="contact.html" class="image-button" style="width: 8rem; aspect-ratio: 345 / 175;">
+					<img src="1x/Contact_Button.png" alt="">
+				</a>
+			</nav>
+		
+		</div>
+		
+		<img class="stripe-screen-width" src="1x/Measured_Stripe.png"/>
+		
+	</div>
+	<!-- END HEADER -->
+	
+	<!-- Introduction Section -->
+	<section class="project-section video-background">
+		<video
+			class="video-background-content" autoplay muted loop playsinline>
+			<source src="videos/GRIMWAR_30SecondTrailer.mp4">
+		</video>
+	
+		<img class="project-logo" src="1x/GRIMWAR_logo.png">
+		<p class="project-subtitle times-new-roman">Ultra-fast FPS with intense combat and lots of skill expression.</p>
+		<a href="https://store.steampowered.com/app/3649130/GRIMWAR/" target="_blank" class="image-button">
+			<img src="1x/Button_Default.png" alt="">
+			<span class="button-text bauhaus">Play on Steam</span>
+		</a>
+	
+	</section>
+	
+	<!-- ABOUT SECTION -->
+	<section class="horizontal-section">
+	<div class="horizontal-layout">
+		<div class="horizontal-group">
+			<!-- Left column content -->
+			<h1 class="title-left-max-padding cooper-black">About</h1>
+			<p class="subtitle-left-minimum-padding">BookWyrm (12 people)</p>
+			<p class="subtitle-left-minimum-padding">August 2024 - May 2025</p>
+			<p class="subtitle-left-minimum-padding">Lead Programmer</p>
+			<p class="subtitle-left-minimum-padding">Unity</p>
+			<p class="paragraph-left">I touched every area of the game throughout GRIMWAR's development. Being the Lead Programmer, I was in charge of one other programmer and was responsible for managing the Github repository. 
+			Some examples of what I worked on include setting up sprints for the programmers, creating all major gameplay features, and integrating 3D art, 2D art, audio, and VFX into all aspects of the game.</p>
+		</div>
+
+		<div class="horizontal-group">
+			<!-- Right column content -->
+			<div class="carousel" style="width: 80%; align-self: center;">
+					<button class="carousel-button prev">
+						<img src="1x/Carousel_Left_Arrow.png">
+					</button>
+					
+					<div class="carousel-track">
+						<div class="carousel-slide">
+							<img src="1x/GRIMWAR_Background.png" alt="">
+						</div>
+					</div>
+				
+					<button class="carousel-button next">
+						<img src="1x/Carousel_Right_Arrow.png">
+					</button>
+				</div>
+		</div>
+	</div>
+</section>
+	
+	<!-- Contributions Pt. 1 -->
+	<img class="horizontal-stripe" src="1x/Measured_Stripe.png">
+	
+	<section class="horizontal-section">
+		<div class="horizontal-layout">
+		
+			<!-- Video with caption -->
+			<div class="horizontal-group">
+				<video class="video" autoplay muted loop playsinline>
+					<source src="videos/GRIMWAR_SpellsVid.mp4">
+				</video>
+				<p class="subtitle-video"><i>Showcase of all spell abilities.</i></p>
+			</div>
+		
+			<!-- Contribution text -->
+			<div class="horizontal-group">
+			
+				<h1 class="title-left cooper-black">Contributions</h1>
+	
+				<h2 class="subtitle-left cooper-black">Player</h2>
+				<ul class="paragraph-left" style="padding: 20px 0px 15px 60px;">
+					<li>Developed and iterated upon player movement (wall-running, sliding, fast-falling).</li>
+					<li>Dealt with player health, damage, death, and respawning.</li>
+					<li>Created four unique player attacks and the system for thier pick-up and drop.</li>
+				</ul>
+
+				<h2 class="subtitle-left cooper-black">Enemies</h2>
+				<ul class="paragraph-left" style="padding: 20px 0px 15px 60px;">
+					<li>Created and integrated a 3D pathfinding system for flying and grounded enemies. <b>This pain point at the start of the project was solved by lots of research in path finding methods,
+						eventually settling on a combination of direct pursuit and waypoints placed around the level.</b></li>
+					<li>Added visual debugs for level designers to determine enemy range and line of sight.</li>
+					<li>Setup enemy health, attacks, death, pathfinding, and decision state machine.</li>
+				</ul>
+			
+			</div>
+		
+		</div>
+	</section>
+	
+	<!-- Contributions Pt. 2 -->
+	<section class="horizontal-section">
+		<div class="horizontal-layout">
+		
+			<!-- Video with caption -->
+			<div class="horizontal-group">
+				<video class="video" autoplay muted loop playsinline>
+					<source src="videos/GRIMWAR_WaypointsVid.mp4">
+				</video>
+				<p class="subtitle-video"><i>Showcase of enemy waypoint pathfinding.</i></p>
+			</div>
+		
+			<div class="horizontal-group">
+
+				<h2 class="subtitle-left cooper-black">Systems</h2>
+				<ul class="paragraph-left" style="padding: 20px 0px 15px 60px;">
+					<li>Created a checkpoint system for easy usability for level designers.</li>
+					<li>Due to performance concerns, I implemented a custom update loop that prevented enemies from running checks every frame.</li>
+					<li>Debugged, fixed, and expanded upon a "best time" tracker, that allows for the player to race their ghost.</li>
+					<li>Debugged, fixed, and expanded upon an enemy wave system that spawns in set enemy waves over time.</li>
+					<li>Implemented settings that are saved between sessions.</li>
+					<li>Setup all UI interaction.</li>
+				</ul>
+
+				<h2 class="subtitle-left cooper-black">UI</h2>
+				<ul class="paragraph-left" style="padding: 20px 0px 15px 60px;">
+					<li>Created the layout for the main menu and the pause menu from provided art and concepts.</li>
+				</ul>
+
+				<h2 class="subtitle-left cooper-black">Github and Project Management</h2>
+				<ul class="paragraph-left" style="padding: 20px 0px 15px 60px;">
+					<li>Maintained sprints and kept the programmers on track for our vertical slice and MVP releases.</li>
+					<li>Oversaw Github operations and resolved any merge conflicts that arose.</li>
+				</ul>
+
+				<h2 class="subtitle-left cooper-black">Events</h2>
+				<ul class="paragraph-left" style="padding: 20px 0px 15px 60px;">
+					<li>Helped manage a playtesting station and collected player feedback at a community event.</li>
+				</ul>
+
+			</div>
+		
+		</div>
+	</section>
+	
+	<img class="horizontal-stripe" src="1x/Measured_Stripe.png">
+	
+	<section class="horizontal-section">
+	<div class="horizontal-layout">
+		
+		<div class="horizontal-group">
+			<!-- Left column content -->
+			<h1 class="title-left-max-padding cooper-black">What I Learned</h1>
+			<p class="paragraph-left">Working on GRIMWAR taught me the importance of clean, readable classes. Its no fun rewriting what could have been written correctly the first time. Of course, I had experience in creating classes
+										that were adaquetly separated between jobs, but I had never had to write this much code that another programmer was going to be consistently referencing. There were many instances that I neglected
+										cleaning up a class before moving on to the next task. I have taken it to heart that someone else is always going to be trying to decipher my code, myself. :)</p>
+			<p class="paragraph-left">Project Management was not something that was new to me, however I was nowhere near an expert. I have always been the kind of person to start typing and ask important questions later. GRIMWAR was not
+										a struggle in that regard because I was responsible for keeping another person on track as well as myself. Although I would say it was a success, I learned a lot in the way of making sure I was ahead
+										of the curve when it came to having tasks on the board and future plans laid out in advance.</p>
+			
+		</div>
+		
+		
+		<div class="horizontal-group">
+			<!-- Right column content -->
+			<img class="image" src="1x/GRIMWAR_Credits.png">
+		</div>
+
+		
+	</div>
+</section>
+	
+	
+<script src="carousel.js"></script>
+<script src="hamburgermenu.js"></script>
+</body>
+</html>

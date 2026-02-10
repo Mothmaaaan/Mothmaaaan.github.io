@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<link rel="stylesheet" href="background.css"/>
+<link rel="stylesheet" href="buttons.css"/>
+<link rel="stylesheet" href="projectDisplay.css"/>
+<link rel="stylesheet" href="carousel.css"/>
+<link rel="stylesheet" href="imageButton.css"/>
+<link rel="stylesheet" href="fonts.css"/>
+<link rel="stylesheet" href="projectPage.css"/>
+<link rel="stylesheet" href="header.css"/>
+<title>Carson Moon | KiBo</title>
+</head>
+
+<body>
+	<!-- HEADER -->
+	<div class="header-container">
+		
+		<div class="header-top" style="padding-top: 1rem;">
+		
+			<div class="header-left">
+				<a href="index.html" class="image-button" style="width: 18rem; aspect-ratio: 1145 / 262;">
+					<img src="1x/Home_Button.png" alt="">
+				</a>
+			</div>
+			
+			<button class="hamburger-menu">
+				<img src="1x/Hamburger_Button.png" alt="" style="width: 3rem;">
+			</button>
+			
+			<nav class="header-nav">
+				<a href="resume.html" class="image-button" style="width: 8rem; aspect-ratio: 345 / 175;">
+					<img src="1x/Resume_Button.png" alt="">
+				</a>
+				<a href="contact.html" class="image-button" style="width: 8rem; aspect-ratio: 345 / 175;">
+					<img src="1x/Contact_Button.png" alt="">
+				</a>
+			</nav>
+		
+		</div>
+		
+		<img class="stripe-screen-width" src="1x/Measured_Stripe.png"/>
+		
+	</div>
+	<!-- END HEADER -->
+	
+	<!-- Introduction Section -->
+	<section class="project-section">
+		<video
+			class="video-background-content" autoplay muted loop playsinline>
+			<source src="videos/KiboBackground.webm">
+		</video>
+	
+		<img class="project-logo" src="1x/Kibo_Title.png">
+		<p class="project-subtitle times-new-roman">Multiplayer experience about elevating future players.</p>
+		
+		<a href="https://carson-moon.itch.io/kibo" target="_blank" class="image-button">
+			<img src="1x/Button_Default.png" alt="">
+			<span class="button-text bauhaus">Download on Itch</span>
+		</a>
+	
+	</section>
+	
+	<!-- ABOUT SECTION -->
+	<section class="horizontal-section">
+	<div class="horizontal-layout">
+		<div class="horizontal-group">
+			<!-- Left column content -->
+			<h1 class="title-left-max-padding cooper-black">About</h1>
+			<p class="subtitle-left-minimum-padding">Polariis (2 People)</p>
+			<p class="subtitle-left-minimum-padding">May 2025 - June 2025</p>
+			<p class="subtitle-left-minimum-padding">Co-Producer and Programmer</p>
+			<p class="subtitle-left-minimum-padding">Unity</p>
+			<p class="paragraph-left">KiBo is an experimental multiplayer experience that a friend and I worked on for the thatgamecompany x COREBLAXER GAME JAM 2025. This is still the largest jam I have taken part in and I am extremely happy with the results. KiBo was a learning experience in procedural animation, netcode, and time-management. I did all of the programming and created some VFX.</p>
+		</div>
+
+		<div class="horizontal-group">
+			<!-- Right column content -->
+			<video class="video" autoplay muted loop playsinline>
+					<source src="videos/Kibo_Trailer.webm">
+				</video>
+				<p class="subtitle-video"><i>The main trailer.</i></p>
+	</div>
+</section>
+	
+	<!-- Contributions Pt. 1 -->
+	<img class="horizontal-stripe" src="1x/Measured_Stripe.png">
+	
+	<section class="horizontal-section">
+		<div class="horizontal-layout">
+		
+			<!-- Video with caption -->
+			<div class="horizontal-group">
+				<video class="video" autoplay muted loop playsinline>
+					<source src="videos/Kibo_IK.mp4">
+				</video>
+				<p class="subtitle-video"><i>Showcase of inverse kinematics.</i></p>
+				
+			</div>
+		
+			<!-- Contribution text -->
+			<div class="horizontal-group">
+			
+				<h1 class="title-left cooper-black">Contributions</h1>
+	
+				<h2 class="subtitle-left cooper-black">Animation Rigging</h2>
+				<ul class="paragraph-left" style="padding: 20px 0px 15px 60px;">
+					<li>Leveraged Unity's Animation Rigging package to control KiBo's movements. Dealt with setting up the initial inverse kinematics and finding
+						the best way to propogate changes to the targets position and rotation over the network. This involved a lot of minor tweaking after the initial
+						setup, but was extremely rewarding once KiBo was moving how I intended.</li>
+				</ul>
+			
+			</div>
+		
+		</div>
+	</section>
+	
+	<!-- Contributions Pt. 2 -->
+	<section class="horizontal-section">
+		<div class="horizontal-layout">
+		
+			<!-- Video with caption -->
+			<div class="horizontal-group">
+				
+				<!-- Video with caption -->
+				<div class="horizontal-group">
+					<video class="video" autoplay muted loop playsinline>
+						<source src="videos/Kibo_Friend.mp4">
+					</video>
+					<p class="subtitle-video"><i>Looking at another player's held item.</i></p>
+
+				</div>
+			</div>
+		
+			<div class="horizontal-group">
+
+				<h2 class="subtitle-left cooper-black">Networking</h2>
+				<ul class="paragraph-left" style="padding: 20px 0px 15px 60px;">
+					<li>Setup a dedicated server using a static IP and Unity Relay to ensure players could connect 24/7 throughout the judging period of the jam.</li>
+					<li>Created a failsafe gamemode in case a player could not connect to the server to ensure players could still experience the game off of the internet.</li>
+				</ul>
+				
+				<h2 class="subtitle-left cooper-black">Other Contributions</h2>
+				<ul class="paragraph-left" style="padding: 20px 0px 15px 60px;">
+					<li>Implemented all player movement and unique object interaction system.</li>
+					<li>Setup camera transitions and cutscenes.</li>
+					<li>Created object centered puzzles with drop-zones and sockets.</li>
+					<li>Created additional shaders such as the ghost item.</li>
+					<li>Created additional VFX such as the torch fire and nirvana portal.</li>
+				</ul>
+
+			</div>
+		
+		</div>
+	</section>
+	
+	<img class="horizontal-stripe" src="1x/Measured_Stripe.png">
+	
+	<section class="horizontal-section">
+	<div class="horizontal-layout">
+		
+		<div class="horizontal-group">
+			<!-- Left column content -->
+			<h1 class="title-left-max-padding cooper-black">What I Learned</h1>
+			<p class="paragraph-left">Caden and I had a bit less than a month to conceptualize and fully create KiBo, and the idea we set out to accomplish was one out of our comfort zone.
+										Not being comfortable with multiplayer development, I pushed myself to learn how to use RPCs properly, how to set up a dedicated
+										server, and how to avoid sending heaps of information over the network. We had some large issues during the last few days of development that
+										was preventing the game from running over the network, but through thorough research and experimentation we pushed through and stabilized the
+										project. This was also my introduction to the Animation Rigging package, which has been a staple when I need to create any sort of character
+										that should react to the world they are in.</p>
+			
+		</div>
+		
+		
+		<div class="horizontal-group">
+			<!-- Right column content -->
+			<img class="image" src="1x/KiBo_Credits.png">
+		</div>
+
+		
+	</div>
+</section>
+	
+	
+<script src="carousel.js"></script>
+<script src="hamburgermenu.js"></script>
+</body>
+</html>
